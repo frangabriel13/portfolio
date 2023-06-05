@@ -47,19 +47,27 @@
 }
 
 .navToggle {
-  font-size: 3.6rem;
+  /* font-size: 3.6rem;
   color: var(--text-color);
-  cursor: pointer;
+  cursor: pointer; */
   display: none;
 }
 
-@media (max-width: 700px) {
+.icon {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
   .navbar {
     position: absolute;
-    display: flex;
+    display: none;
     top: 6rem;
     flex-direction: column;
-    background: yellowgreen;
+    background: var(--second-bg-color);
     left: 0;
     width: 100%;
     padding-top: 0.2rem;
@@ -68,8 +76,17 @@
 
   .navToggle {
     display: flex;
+    /* display: block; */
   }
+
   .navToggle i {
     position: relative;
+  }
+  /* puede no ser necesario */
+
+  .open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
