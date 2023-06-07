@@ -6,32 +6,22 @@ const Home = () => {
     <div className={s.container}>
       <div className={s.leftSection}>
         <h1 className={s.title}>Hola, soy Franco</h1>
-        <h2 className={s.subtitle}>Full Stack Developer</h2>
-        <p className={s.description}>
-          Frase de tres renglones que describe tus habilidades y experiencia.
-        </p>
-        <div className={s.buttons}>
-          <button className={s.button}>Contactame</button>
-          <button className={s.button}>Descarga CV</button>
+        <h3 className={s.subtitle}>Full Stack Developer</h3>
+        <p className={s.description}>La programación es el superpoder que me permite dar vida a las ideas, 
+        transformando la imaginación en código. Es el arte de crear soluciones innovadoras 
+        que resuelven problemas complejos y abren puertas hacia un futuro lleno de posibilidades.</p>
+        <div className={s.btns}>
+          <button className={s.btnOne}>Contáctame</button>
+          <button className={s.btnTwo}>Descargar CV</button>
         </div>
         <div className={s.socialIcons}>
-          <a href="https://www.instagram.com/yourusername">
-            <i className={`bx bxl-instagram ${s.icon}`}></i>
-          </a>
-          <a href="https://twitter.com/yourusername">
-            <i className={`bx bxl-twitter ${s.icon}`}></i>
-          </a>
-          <a href="https://www.linkedin.com/in/yourusername">
-            <i className={`bx bxl-linkedin ${s.icon}`}></i>
-          </a>
+          <i className={`bx bxl-linkedin ${s.icon}`}></i>
+          <i className={`bx bxl-instagram ${s.icon}`}></i>
+          <i className={`bx bxl-twitter ${s.icon}`}></i>
         </div>
       </div>
       <div className={s.rightSection}>
-        <img
-          src="/path/to/your/image.jpg"
-          alt="Profile Image"
-          className={s.image}
-        />
+        <img src="/src/assets/developer.png" alt="img" className={s.image} />
       </div>
     </div>
   ) 
