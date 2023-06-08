@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "./ProjectCard.module.css";
 
-const ProjectCard = ({ image, description }) => {
-  const [showDescription, setShowDescription] = useState(false);
-
-  const handleToggleDescription = () => {
-    setShowDescription(!showDescription);
-  };
-
+const ProjectCard = ({ image, description, title, isOpen, onToggleDescription }) => {
   return (
     <div className={s.card}>
       <img src={image} alt="Project" className={s.image} />
-      {showDescription && <div className={s.description}>{description}</div>}
-      <button className={s.button} onClick={handleToggleDescription}>
-        {showDescription ? "Ver menos" : "Ver más"}
+      {isOpen && (
+        <div className={s.description}>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+      )}
+      <button className={s.button} onClick={onToggleDescription}>
+        {isOpen ? "Ver menos" : "Ver más"}
       </button>
     </div>
   );

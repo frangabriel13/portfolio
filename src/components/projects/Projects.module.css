@@ -14,5 +14,21 @@
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
+  grid-gap: 4rem;
+}
+
+.closeButton {
+  position: absolute;
+  bottom: -3rem;
+  right: 0;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: var(--second-color);
 }
