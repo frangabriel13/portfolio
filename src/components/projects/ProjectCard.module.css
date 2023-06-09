@@ -20,6 +20,11 @@
   color: var(--text-color);
   background: var(--second-bg-color);
   padding: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
 }
 
 .description h3 {
@@ -36,6 +41,8 @@
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  z-index: 2;
+
 }
 
 .button:hover {
