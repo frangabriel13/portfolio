@@ -15,6 +15,49 @@
   border-radius: 0.5rem;
 }
 
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.iconContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.iconContainer i {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.iconContainer i:last-child {
+  margin-right: 0; /* Elimina el margen derecho para el último icono */
+}
+
+.imageContainer:hover .iconContainer {
+  opacity: 1;
+}
+
+.imageContainer:hover .image {
+  filter: blur(4px);
+}
+
 .description {
   font-size: 1.3rem;
   color: var(--text-color);
@@ -24,7 +67,7 @@
   padding-bottom: 3rem;
   position: absolute;
   top: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .description h3 {
@@ -33,7 +76,7 @@
 
 .button {
   position: absolute;
-  bottom: -3rem;
+  bottom: -2.5rem;
   right: 0;
   background-color: var(--main-color);
   color: var(--text-color);

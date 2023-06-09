@@ -17,7 +17,7 @@
   grid-gap: 4rem;
 }
 
-.closeButton {
+/* .closeButton {
   position: absolute;
   bottom: -3rem;
   right: 0;
@@ -31,4 +31,26 @@
 
 .closeButton:hover {
   background-color: var(--second-color);
+} */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 6%;
+  }
+  
+  .container h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .projects {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 3rem;
+  }
+  
+  /* .closeButton {
+    bottom: -2rem;
+    right: 0.5rem;
+    padding: 0.3rem 0.8rem;
+  } */
 }
