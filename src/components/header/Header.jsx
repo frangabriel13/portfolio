@@ -1,9 +1,25 @@
 import React from "react";
 import s from "./Header.module.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId);
@@ -18,7 +34,7 @@ function Header() {
   };
 
   return (
-    <div className={s.container}>
+    <div className={`${s.container} ${isScrolled ? s.scrolled : ""}`}>
         <a href="#home" className={s.logo}>Franco.</a>
         <nav className={`${s.navbar} ${menuOpen ? s.open : ''}`}>
             <a href="#home" className={s.home} onClick={() => toggleMenu('home')}>Home</a>
