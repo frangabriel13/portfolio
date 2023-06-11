@@ -22,12 +22,20 @@ const Contact = () => {
             <i class='bx bxl-twitter' ></i>
           </div>
         </div>
-        <div className={s.form}>
+        {/* <div className={s.form}>
           <input type="text" placeholder="Name" />
           <input type="email" placeholder="Email" />
           <textarea placeholder="Message"></textarea>
           <button className={s.sendButton}>Enviar</button>
-        </div>
+        </div> */}
+        <div className={s.form}>
+  <div className={`${s.inputGroup}`}>
+    <input type="text" placeholder="Name" />
+    <input type="email" placeholder="Email" />
+  </div>
+  <textarea placeholder="Message"></textarea>
+  <button className={s.sendButton}>Enviar</button>
+</div>
       </div>
     </div>
   );
