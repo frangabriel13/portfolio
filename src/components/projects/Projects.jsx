@@ -43,7 +43,7 @@ const Projects = () => {
   };
 
   return (
-    <div className={s.container}>
+    <div className={s.container} id="projects">
       <h2>Projects</h2>
       <div className={s.projects}>
         {projectsData.map((project, index) => (

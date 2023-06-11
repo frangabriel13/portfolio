@@ -7,7 +7,7 @@ const Skills = () => {
     "React Native", "Redux", "Bootstrap", "Tailwind"];
   
   return (
-    <div className={s.container}>
+    <div className={s.container} id="skills">
       <h2 className={s.title}>Skills</h2>
       <div className={s.skills}>
         {skills.map((skill, index) => (

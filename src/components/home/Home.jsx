@@ -3,7 +3,7 @@ import s from "./Home.module.css";
 
 const Home = () => {
   return(
-    <div className={s.container}>
+    <div className={s.container} id="home">
       <div className={s.leftSection}>
         <h1 className={s.title}>Hola, soy Franco</h1>
         <h3 className={s.subtitle}>Full Stack Developer</h3>
