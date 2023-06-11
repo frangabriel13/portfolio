@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* text-align: center; */
   background: var(--second-bg-color);
   padding: 5.5rem 9%;
 }
@@ -37,26 +36,28 @@
 }
 
 .info h4 {
-  /* text-align: center; */
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
+  font-size: 2rem;
 }
 
-/* .whatsappButton {
-  margin-left: auto;
-  margin-right: auto;
-} */
+.info p {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
 .whatsappButton {
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-  background-color: #25D366;
+  background-color: #1BD439;
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 1rem 2rem;
+  border-radius: .5rem;
   border: none;
   text-decoration: none;
   text-align: center;
@@ -65,37 +66,64 @@
 }
 
 .whatsappButton:hover {
-  background-color: #128C7E;
+  background-color: #25D366;
 }
 
 .icons {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.iconItem {
+  display: flex;
+  align-items: center;
+}
+
+.iconItem span {
+  font-size: 1.4rem;
+  padding-left: .5rem;
 }
 
 .icons i {
   margin-bottom: 0.5rem;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to right, var(--bg-color) 50%, var(--text-color) 50%);
+  background-size: 200% 100%;
+  border: .2rem solid var(--main-color);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--main-color);
+  cursor: pointer;
+  transition: background-position 0.3s;
 }
 
 .socialIcons {
   text-align: center;
 }
 
-/* .form {
-  flex: 2;
-  padding: 2rem;
+.socialIcons i {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to right, var(--bg-color) 50%, var(--text-color) 50%);
+  background-size: 200% 100%;
+  border: .2rem solid var(--main-color);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--main-color);
+  cursor: pointer;
+  transition: background-position 0.3s;
 }
-
-.form input,
-.form textarea {
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.sendButton {
-  align-self: flex-end;
-} */
 
 .form {
   display: flex;
@@ -103,14 +131,14 @@
   flex: 2;
   align-items: flex-start;
   width: 100%;
-  border-radius: 5px;
-  padding: 20px;
+  border-radius: .5rem;
+  padding: 2rem;
 }
 
 .form input,
 .form textarea {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .form .inputGroup {
@@ -122,13 +150,19 @@
 
 .form .inputGroup input {
   flex: 1;
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 
 .form textarea {
-  height: 100px;
+  height: 10rem;
 }
 
 .sendButton {
   align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
 }

@@ -12,8 +12,14 @@ const Contact = () => {
             <p>Contactame por mail llenando el formulario de contacto, o bien, hazlo por las redes.</p>
             <button className={s.whatsappButton}>WhatsApp</button>
             <div className={s.icons}>
-              <i class='bx bx-phone'></i>
-              <i class='bx bx-envelope' ></i>
+              <div className={s.iconItem}>
+                <i class='bx bx-phone'></i>
+                <span>+54 11 5874 2482</span>
+              </div>
+              <div className={s.iconItem}>
+                <i class='bx bx-envelope' ></i>
+                <span>mansilla.franco.1@gmail.com</span>
+              </div>
             </div>
           </div>
           <div className={s.socialIcons}>
