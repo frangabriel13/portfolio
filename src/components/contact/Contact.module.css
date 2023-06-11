@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--second-bg-color);
+  padding: 5.5rem 9%;
+}
+
+.container h2 {
+  font-size: 4.2rem;
+  margin-bottom: 5.5rem;
+}
+
+.title span {
+  color: var(--main-color);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  border: .1rem solid var(--main-color);
+  border-radius: .5rem;
+  background: var(--bg-color);
+}
+
+.contact {
+  flex: 1;
+  background: var(--main-color);
+  padding: 2rem;
+}
+
+.form {
+  flex: 2;
+  padding: 2rem;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.sendButton {
+  align-self: flex-end;
+}
