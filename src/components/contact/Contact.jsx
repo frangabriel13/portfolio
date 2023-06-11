@@ -13,35 +13,29 @@ const Contact = () => {
             <button className={s.whatsappButton}>WhatsApp</button>
             <div className={s.icons}>
               <div className={s.iconItem}>
-                <i class='bx bx-phone'></i>
+                <i className='bx bx-phone'></i>
                 <span>+54 11 5874 2482</span>
               </div>
               <div className={s.iconItem}>
-                <i class='bx bx-envelope' ></i>
+                <i className='bx bx-envelope' ></i>
                 <span>mansilla.franco.1@gmail.com</span>
               </div>
             </div>
           </div>
           <div className={s.socialIcons}>
-            <i class='bx bxl-linkedin' ></i>
-            <i class='bx bxl-instagram' ></i>
-            <i class='bx bxl-twitter' ></i>
+            <i className='bx bxl-linkedin' ></i>
+            <i className='bx bxl-instagram' ></i>
+            <i className='bx bxl-twitter' ></i>
           </div>
         </div>
-        {/* <div className={s.form}>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
+        <div className={s.form}>
+          <div className={`${s.inputGroup}`}>
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+          </div>
           <textarea placeholder="Message"></textarea>
           <button className={s.sendButton}>Enviar</button>
-        </div> */}
-        <div className={s.form}>
-  <div className={`${s.inputGroup}`}>
-    <input type="text" placeholder="Name" />
-    <input type="email" placeholder="Email" />
-  </div>
-  <textarea placeholder="Message"></textarea>
-  <button className={s.sendButton}>Enviar</button>
-</div>
+        </div>
       </div>
     </div>
   );
