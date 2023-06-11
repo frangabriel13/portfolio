@@ -1,7 +1,20 @@
 import React from "react";
 import s from "./Home.module.css";
+import cv from "../../assets/CVfrancom.pdf"
 
 const Home = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    contactSection.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = cv;
+    link.download = "CVfrancom.pdf";
+    link.click();
+  };
+
   return(
     <div className={s.container} id="home">
       <div className={s.leftSection}>
@@ -11,13 +24,19 @@ const Home = () => {
         transformando la imaginación en código. Es el arte de crear soluciones innovadoras 
         que resuelven problemas complejos y abren puertas hacia un futuro lleno de posibilidades.</p>
         <div className={s.btns}>
-          <button className={s.btnOne}>Contáctame</button>
-          <button className={s.btnTwo}>Descargar CV</button>
+          <button className={s.btnOne} onClick={scrollToContact}>Contáctame</button>
+          <button className={s.btnTwo} onClick={handleDownloadCV}>Descargar CV</button>
         </div>
         <div className={s.socialIcons}>
-          <i className={`bx bxl-linkedin ${s.icon}`}></i>
-          <i className={`bx bxl-instagram ${s.icon}`}></i>
-          <i className={`bx bxl-twitter ${s.icon}`}></i>
+          <a href="https://www.linkedin.com/in/frangabriel13/" target="_blank">
+            <i className={`bx bxl-linkedin ${s.icon}`}></i>
+          </a>
+          <a href="https://www.instagram.com/frangabriel.13/" target="_blank">
+            <i className={`bx bxl-instagram ${s.icon}`}></i>
+          </a>
+          <a href="https://twitter.com/frangabriel13_/" target="_blank">
+            <i className={`bx bxl-twitter ${s.icon}`}></i>
+          </a>
         </div>
       </div>
       <div className={s.rightSection}>

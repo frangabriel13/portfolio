@@ -24,6 +24,12 @@ function Header() {
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId);
   };
+  // const scrollToSection = (sectionId) => {
+  //   const section = document.getElementById(sectionId);
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
   
   const toggleMenu = (sectionId) => {
     setMenuOpen(!menuOpen);
