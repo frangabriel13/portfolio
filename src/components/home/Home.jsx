@@ -37,6 +37,9 @@ const Home = () => {
           <a href="https://twitter.com/frangabriel13_/" target="_blank">
             <i className={`bx bxl-twitter ${s.icon}`}></i>
           </a>
+          <a href="https://github.com/frangabriel13/" target="_blank">
+            <i className={`bx bxl-github ${s.icon}`}></i>
+          </a>
         </div>
       </div>
       <div className={s.rightSection}>
