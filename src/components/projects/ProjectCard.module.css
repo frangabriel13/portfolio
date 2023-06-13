@@ -37,7 +37,7 @@
   z-index: 1;
 }
 
-.iconContainer i {
+.iconContainer a i {
   font-size: 4rem;
   color: rgba(255, 255, 255, 0.5);
   background-color: rgba(0, 0, 0, 0.5);
@@ -46,9 +46,9 @@
   cursor: pointer;
   margin-right: 1rem;
 }
-.iconContainer i:last-child {
-  margin-right: 0; /* Elimina el margen derecho para el último icono */
-}
+/* .iconContainer a i:last-child {
+  margin-right: 0;
+} */
 
 .imageContainer:hover .iconContainer {
   opacity: 1;
@@ -68,6 +68,7 @@
   position: absolute;
   top: 100%;
   z-index: 2;
+  border: .2rem solid var(--dark-color);
 }
 
 .description h3 {

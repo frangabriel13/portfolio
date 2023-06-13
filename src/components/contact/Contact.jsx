@@ -32,7 +32,6 @@ const Contact = () => {
           <div className={s.info}>
             <h4>Informacion de contacto</h4>
             <p>Contactame por mail llenando el formulario de contacto, o bien, hazlo por las redes.</p>
-            {/* <button href="https://api.whatsapp.com/send?phone=541158742482" className={s.whatsappButton}>WhatsApp</button> */}
             <a href="https://api.whatsapp.com/send?phone=541158742482" className={s.whatsappButton} target="_blank">
               WhatsApp
             </a>
