@@ -1,17 +1,25 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import s from "./Contact.module.css";
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const form = useRef();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm('service_tnnnfvr', 'template_3eqdrig', form.current, 'xZ9ZO9Eb1IryQGDeI')
       .then((result) => {
-          console.log(result.text);
+          // console.log(result.text);
+          alert("El correo electrónico se envió correctamente.");
+          setName("");
+          setEmail("");
+          setMessage("");
       }, (error) => {
+          alert("Ocurrió un error al enviar el correo electrónico.");
           console.log(error.text);
       });
   };
@@ -24,7 +32,10 @@ const Contact = () => {
           <div className={s.info}>
             <h4>Informacion de contacto</h4>
             <p>Contactame por mail llenando el formulario de contacto, o bien, hazlo por las redes.</p>
-            <button className={s.whatsappButton}>WhatsApp</button>
+            {/* <button href="https://api.whatsapp.com/send?phone=541158742482" className={s.whatsappButton}>WhatsApp</button> */}
+            <a href="https://api.whatsapp.com/send?phone=541158742482" className={s.whatsappButton} target="_blank">
+              WhatsApp
+            </a>
             <div className={s.icons}>
               <div className={s.iconItem}>
                 <i className='bx bx-phone'></i>
@@ -44,10 +55,10 @@ const Contact = () => {
         </div>
         <form className={s.form} ref={form} onSubmit={sendEmail}>
           <div className={`${s.inputGroup}`}>
-            <input type="text" placeholder="Name" name="user_name" />
-            <input type="email" placeholder="Email" name="user_email" />
+            <input type="text" placeholder="Name" name="user_name" value={name} onChange={(e) => setName(e.target.value)} required />
+            <input type="email" placeholder="Email" name="user_email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
-          <textarea placeholder="Message" name="message"></textarea>
+          <textarea placeholder="Message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
           <button className={s.sendButton}>Enviar</button>
         </form>
       </div>
