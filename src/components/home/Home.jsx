@@ -43,7 +43,8 @@ const Home = () => {
         </div>
       </div>
       <div className={s.rightSection}>
-        <img src="/src/assets/codeman.png" alt="img" className={s.image} />
+        {/* <img src="../assets/codeman.png" alt="img" className={s.image} /> */}
+        <img src="./src/assets/codeman.png" alt="img" className={s.image} />
       </div>
     </div>
   ) 
