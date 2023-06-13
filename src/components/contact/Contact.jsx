@@ -48,9 +48,18 @@ const Contact = () => {
             </div>
           </div>
           <div className={s.socialIcons}>
-            <i className='bx bxl-linkedin' ></i>
-            <i className='bx bxl-instagram' ></i>
-            <i className='bx bxl-twitter' ></i>
+            <a href="https://www.linkedin.com/in/frangabriel13/" target="_blank">
+              <i className={`bx bxl-linkedin ${s.icon}`}></i>
+            </a>
+            <a href="https://www.instagram.com/frangabriel.13/" target="_blank">
+              <i className={`bx bxl-instagram ${s.icon}`}></i>
+            </a>
+            <a href="https://twitter.com/frangabriel13_/" target="_blank">
+              <i className={`bx bxl-twitter ${s.icon}`}></i>
+            </a>
+            <a href="https://github.com/frangabriel13/" target="_blank">
+              <i className={`bx bxl-github ${s.icon}`}></i>
+            </a>
           </div>
         </div>
         <form className={s.form} ref={form} onSubmit={sendEmail}>
