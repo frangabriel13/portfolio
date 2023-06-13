@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import s from "./Contact.module.css";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_tnnnfvr', 'template_3eqdrig', form.current, 'xZ9ZO9Eb1IryQGDeI')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
   return (
     <div className={s.container} id="contact">
       <h2 className={s.title}>Contact <span>Me</span></h2>
@@ -28,14 +42,14 @@ const Contact = () => {
             <i className='bx bxl-twitter' ></i>
           </div>
         </div>
-        <div className={s.form}>
+        <form className={s.form} ref={form} onSubmit={sendEmail}>
           <div className={`${s.inputGroup}`}>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
+            <input type="text" placeholder="Name" name="user_name" />
+            <input type="email" placeholder="Email" name="user_email" />
           </div>
-          <textarea placeholder="Message"></textarea>
+          <textarea placeholder="Message" name="message"></textarea>
           <button className={s.sendButton}>Enviar</button>
-        </div>
+        </form>
       </div>
     </div>
   );
