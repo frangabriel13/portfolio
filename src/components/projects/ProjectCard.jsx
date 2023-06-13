@@ -5,14 +5,14 @@ const ProjectCard = ({ image, description, title, link, git, isOpen, onToggleDes
   return (
     <div className={s.card}>
       <div className={s.imageContainer}>
-        <a href={link}>
+        <a href={link} target="_blank">
           <img src={image} alt="Project" className={s.image} />
         </a>
         <div className={s.iconContainer}>
-          <a href={link}>
+          <a href={link} target="_blank">
             <i className="bx bx-world"></i>
           </a>
-          <a href={git}>
+          <a href={git} target="_blank">
             <i className="bx bxl-github"></i>
           </a>
         </div>
