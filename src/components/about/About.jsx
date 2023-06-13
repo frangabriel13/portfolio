@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import s from "./About.module.css";
+import yo from "../../assets/yo.jpeg";
 
 const About = () => {
   const aboutRef = useRef(null);
@@ -26,7 +27,7 @@ const About = () => {
       <h2 className={s.title}>About <span>Me</span></h2>
       <div className={s.about}>
         <div className={s.leftSection}>
-          <img src="/src/assets/yo.jpeg" alt="Profile" className={s.image} />
+          <img src={yo} alt="Profile" className={s.image} />
           <h4 className={s.name}>Franco Mansilla</h4>
           <h5 className={s.role}>Full Stack Developer</h5>
         </div>
