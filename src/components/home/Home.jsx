@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Home.module.css";
 import cv from "../../assets/CVfrancom.pdf"
+import portada from "../../assets/codeman.png";
 
 const Home = () => {
   const scrollToContact = () => {
@@ -43,8 +44,8 @@ const Home = () => {
         </div>
       </div>
       <div className={s.rightSection}>
-        {/* <img src="../assets/codeman.png" alt="img" className={s.image} /> */}
-        <img src="./src/assets/codeman.png" alt="img" className={s.image} />
+        {/* <img src="/src/assets/codeman.png" alt="img" className={s.image} /> */}
+        <img src={portada} alt="img" className={s.image} />
       </div>
     </div>
   ) 
