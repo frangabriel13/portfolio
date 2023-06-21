@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Home.module.css";
-import cv from "../../assets/CVfrancom.pdf"
+import cv from "../../assets/francoMansillaCV.pdf"
 import portada from "../../assets/codeman.png";
 
 const Home = () => {
