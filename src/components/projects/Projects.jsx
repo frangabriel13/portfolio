@@ -4,15 +4,31 @@ import ProjectCard from "./ProjectCard";
 import rumay from "../../assets/rumay.png";
 import poke from "../../assets/pokemon.png";
 import predio from "../../assets/elpredio.png";
+import fabricante from "../../assets/fabriDir.png";
+import africa from "../../assets/africa.png";
 
 const Projects = () => {
   const projectsData = [
     {
+      title: "Fabricante Directo",
+      image: `${fabricante}`,
+      link: "https://fabricantedirecto.com/",
+      git: "https://github.com/frangabriel13/fabricante-directo",
+      description: "Aplicación B2B que reune fabricantes textiles con mayoristas. Me ocupé mayormente del backend diseñando una arquitectura de microservicios. Utilicé stack PERN junto a servicios de AWS como S3, EC2 y RDS.",
+    },
+    {
+      title: "Africa Mía",
+      image: `${africa}`,
+      link: "https://africamia-jeans.online/",
+      git: "https://github.com/frangabriel13/africaMia",
+      description: "E-commerce autogestionada para una tienda de jeans de dama. Usé stack PERN e implementé AWS S3 para el guardado de imágenes.",
+    },
+    {
       title: "Rumay - E-commerce",
       image: `${rumay}`,
-      link: "https://rumay.com.ar/",
-      git: "https://rumay.com.ar/",
-      description: "E-commerce diseñada en WordPress con Divi, WooCommerce y BodyCommerce. Tienda online realizada para una tienda mayorista de indumentaria femenina",
+      link: "https://github.com/frangabriel13",
+      git: "https://github.com/frangabriel13",
+      description: "E-commerce diseñada en WordPress con Divi, WooCommerce y BodyCommerce. Tienda online realizada para una tienda mayorista de indumentaria femenina.",
     },
     {
       title: "Pokémon - Proyecto Académico",
@@ -25,8 +41,8 @@ const Projects = () => {
       title: "El Predio - Proyecto Real",
       image: `${predio}`,
       link: "https://el-predio.vercel.app/",
-      git: "https://el-predio.vercel.app/",
-      description: "Trabajo real y en grupo hecho para un complejo deportivo de canchas de fútbol con sistema de reservas. Implementé registro de usuarios, autenticación local y de terceros, envío de mails, pasarela de pagos con MercadoPago, dashboard de admin, etc. Tecnologías: JavaScript, NodeJs, Express, PostgreSQL y React.",
+      git: "https://github.com/EmmanuelML78/EL-PREDIO",
+      description: "Trabajo en grupo hecho para un complejo deportivo de canchas de fútbol con sistema de reservas, registro de usuarios, autenticación local y de terceros, envío de mails, pasarela de pagos, etc. Tecnologías: JavaScript, NodeJs, Express, PostgreSQL y React.",
     },
   ];
 
