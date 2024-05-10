@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Home.module.css";
-import cv from "../../assets/francoMansillaCV.pdf"
+import cv from "../../assets/franMansillaCV.pdf"
 import portada from "../../assets/codeman.png";
 
 const Home = () => {
@@ -21,9 +21,7 @@ const Home = () => {
       <div className={s.leftSection}>
         <h1 className={s.title}>Hola, soy Franco</h1>
         <h3 className={s.subtitle}>Full Stack Developer</h3>
-        <p className={s.description}>La programación es el superpoder que me permite dar vida a las ideas, 
-        transformando la imaginación en código. Es el arte de crear soluciones innovadoras 
-        que resuelven problemas complejos y abren puertas hacia un futuro lleno de posibilidades.</p>
+        <p className={s.description}>La programación me permite dar vida a las ideas transformando la imaginación en código.</p>
         <div className={s.btns}>
           <button className={s.btnOne} onClick={scrollToContact}>Contáctame</button>
           <button className={s.btnTwo} onClick={handleDownloadCV}>Descargar CV</button>

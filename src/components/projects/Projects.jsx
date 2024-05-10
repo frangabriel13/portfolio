@@ -6,6 +6,7 @@ import poke from "../../assets/pokemon.png";
 import predio from "../../assets/elpredio.png";
 import fabricante from "../../assets/fabriDir.png";
 import africa from "../../assets/africa.png";
+import tirria from "../../assets/tirria.png";
 
 const Projects = () => {
   const projectsData = [
@@ -22,6 +23,13 @@ const Projects = () => {
       link: "https://africamia-jeans.online/",
       git: "https://github.com/frangabriel13/africaMia",
       description: "E-commerce autogestionada para una tienda de jeans de dama. Usé stack PERN e implementé AWS S3 para el guardado de imágenes.",
+    },
+    {
+      title: "Tirria",
+      image: `${tirria}`,
+      link: "https://tirriasolflores.com/",
+      git: "https://github.com/frangabriel13/tirria-sol",
+      description: "E-commerce autogestionada para una tienda de indumentaria femenina. Usé stack PERN e implementé Cloudinary para el guardado de imágenes.",
     },
     {
       title: "Rumay - E-commerce",

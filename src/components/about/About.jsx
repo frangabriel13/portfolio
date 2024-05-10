@@ -32,12 +32,9 @@ const About = () => {
           <h5 className={s.role}>Full Stack Developer</h5>
         </div>
         <div className={s.rightSection}>
-          <p className={s.description}>Desde mi infancia, siempre sentí fascinación por la tecnología y 
-          el mundo de la informática. Cuando pasaba por momentos difíciles y la dificultad 
-          de no encontrar un rumbo claro en mi vida, descubrí en la programación mi verdadera vocación, 
-          esa luz al final del túnel que me motivó a seguir adelante. Desde entonces, 
-          dedico incontables horas a resolver problemas de lógica, aprender nuevas tecnologías 
-          y crear proyectos que me permiten mejorar mis habilidades. <br /><br />
+          <p className={s.description}>Soy Full Stack Developer con experiencia. Cuando pasaba por momentos difíciles, descubrí en la programación 
+          mi verdadera vocación. Comencé a estudiar desarrollo web de forma autodidacta, aprendiendo tecnologías demandadas por la industria que me permitieron
+          desarrollar numerosos proyectos y obtener expriencia laboral (freelance y en Fabricante Directo) para seguir perfeccionando mis habilidades. <br /><br />
 
           Me desenvuelvo con facilidad tanto en trabajos individuales como en equipo. 
           Mi destreza en la resolución de conflictos es una de mis mejores habilidades. 
