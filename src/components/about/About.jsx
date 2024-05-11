@@ -32,14 +32,15 @@ const About = () => {
           <h5 className={s.role}>Full Stack Developer</h5>
         </div>
         <div className={s.rightSection}>
-          <p className={s.description}>Soy Full Stack Developer con experiencia. Comencé a estudiar desarrollo web de forma autodidacta, aprendiendo tecnologías demandadas por la industria que me permitieron
-          desarrollar numerosos proyectos y obtener expriencia laboral (freelance y en Fabricante Directo) para seguir perfeccionando mis habilidades. <br /><br />
+          <p className={s.description}>Soy Full Stack Developer con experiencia. Comencé a estudiar desarrollo web de forma autodidacta, 
+          aprendiendo tecnologías demandadas por la industria que me permitieron desarrollar numerosos proyectos y seguir perfeccionando 
+          mis habilidades. <br /><br />
 
-          Me desenvuelvo con facilidad tanto en trabajos individuales como en equipo. 
-          Mi destreza en la resolución de conflictos es una de mis mejores habilidades. 
-          Enfrento los problemas como desafíos y no me frustro, siempre busco las mejores soluciones. 
-          Como buen profesional, mi compromiso con el trabajo es inquebrantable y me esfuerzo 
-          por alcanzar los mejores resultados en cada proyecto en el que me involucro. <br /><br />
+          En mis inicios, comencé desarrollando la E-commerce de varias tiendas de ropa de Buenos Aires. Gracias a que mis trabajos contentaron
+          a mis clientes, algunos se unieron con el fin de contratarme para un proyecto mucho mas ambicioso. Crear una aplicación B2B (Bussiness to Businnes) 
+          que conecte fabricantes con mayoristas. Hoy puedo decir que sigo trabajando en Fabricante Directo realizando mantenimiento y actualizando la app.
+          Como buen profesional, mi compromiso con el trabajo es inquebrantable y me esfuerzo por alcanzar los mejores resultados en cada proyecto 
+          en el que me involucro. <br /><br />
 
           La programación me ha dado un propósito y me ha enseñado que con perseverancia y dedicación, 
           cualquier obstáculo puede ser superado.</p>
