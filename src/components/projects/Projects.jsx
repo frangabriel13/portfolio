@@ -4,9 +4,10 @@ import ProjectCard from "./ProjectCard";
 import rumay from "../../assets/rumay.png";
 import poke from "../../assets/pokemon.png";
 import predio from "../../assets/elpredio.png";
-import fabricante from "../../assets/fabriDir.png";
+import fabricante from "../../assets/fd1.png";
 import africa from "../../assets/africa.png";
 import tirria from "../../assets/tirria.png";
+import eternal from "../../assets/er1.png";
 
 const Projects = () => {
   const projectsData = [
@@ -16,6 +17,13 @@ const Projects = () => {
       link: "https://fabricantedirecto.com/",
       git: "https://github.com/frangabriel13/fabricante-directo",
       description: "Aplicación B2B que reune fabricantes textiles con mayoristas. Me ocupé mayormente del backend diseñando una arquitectura de microservicios. Utilicé stack PERN junto a servicios de AWS como S3, EC2 y RDS.",
+    },
+    {
+      title: "Eternal Restful",
+      image: `${eternal}`,
+      link: "https://www.eternalrestfulfuneralservices.com/",
+      git: "https://github.com/frangabriel13/restful",
+      description: "Sitio web de una funeraria de Estados Unidos (en idioma inglés y español). Página informativa de la empresa, con detalles sobre sus servicios y contacto. Además, cuenta con un dashboard para la gestión de clientes manejado por un administrador y cuentas de empleados.",
     },
     {
       title: "Africa Mía",
