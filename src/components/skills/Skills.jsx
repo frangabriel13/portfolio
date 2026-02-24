@@ -29,95 +29,109 @@ const Skills = () => {
   return (
     <div className={s.container} id="skills">
       <h2 className={s.title}>Skills</h2>
-      {/* <div className={s.skills}>
-        {skills.map((skill, index) => (
-          <span key={index} className={s.skill}>{skill}</span>
-        ))}
-      </div> */}
-      <div className={s.skills}>
-        <div className={s.skill}>
-          <AiOutlineHtml5 className={s.icon} />
-          <p>HTML5</p>
+
+      {/* Frontend */}
+      <div className={s.categorySection}>
+        <h3 className={s.categoryTitle}>Frontend</h3>
+        <div className={s.skills}>
+          <div className={s.skill}>
+            <AiOutlineHtml5 className={s.icon} />
+            <p>HTML5</p>
+          </div>
+          <div className={s.skill}>
+            <FaCss3 className={s.icon} />
+            <p>CSS3</p>
+          </div>
+          <div className={s.skill}>
+            <IoLogoJavascript className={s.icon} />
+            <p>JavaScript</p>
+          </div>
+          <div className={s.skill}>
+            <SiTypescript className={s.icon} />
+            <p>TypeScript</p>
+          </div>
+          <div className={s.skill}>
+            <FaWordpressSimple className={s.icon} />
+            <p>WordPress</p>
+          </div>
+          <div className={s.skill}>
+            <FaReact className={s.icon} />
+            <p>React</p>
+          </div>
+          <div className={s.skill}>
+            <SiRedux className={s.icon} />
+            <p>Redux</p>
+          </div>
+          <div className={s.skill}>
+            <FaReact className={s.icon} />
+            <p>React Native</p>
+          </div>
+          <div className={s.skill}>
+            <SiExpo className={s.icon} />
+            <p>Expo</p>
+          </div>
+          <div className={s.skill}>
+            <RiNextjsLine className={s.icon} />
+            <p>Next.js</p>
+          </div>
+          <div className={s.skill}>
+            <FaBootstrap className={s.icon} />
+            <p>Bootstrap</p>
+          </div>
+          <div className={s.skill}>
+            <SiTailwindcss className={s.icon} />
+            <p>Tailwind</p>
+          </div>
         </div>
-        <div className={s.skill}>
-          <FaCss3 className={s.icon} />
-          <p>CSS3</p>
+      </div>
+
+      {/* Backend & Base de Datos */}
+      <div className={s.categorySection}>
+        <h3 className={s.categoryTitle}>Backend & Base de Datos</h3>
+        <div className={s.skills}>
+          <div className={s.skill}>
+            <FaNodeJs className={s.icon} />
+            <p>Node.js</p>
+          </div>
+          <div className={s.skill}>
+            <SiExpress className={s.icon} />
+            <p>Express</p>
+          </div>
+          <div className={s.skill}>
+            <SiNestjs className={s.icon} />
+            <p>NestJS</p>
+          </div>
+          <div className={s.skill}>
+            <SiSequelize className={s.icon} />
+            <p>Sequelize</p>
+          </div>
+          <div className={s.skill}>
+            <SiPostgresql className={s.icon} />
+            <p>PostgreSQL</p>
+          </div>
         </div>
-        <div className={s.skill}>
-          <IoLogoJavascript className={s.icon} />
-          <p>JavaScript</p>
-        </div>
-        <div className={s.skill}>
-          <SiTypescript className={s.icon} />
-          <p>TypeScript</p>
-        </div>
-        <div className={s.skill}>
-          <FaWordpressSimple className={s.icon} />
-          <p>WordPress</p>
-        </div>
-        <div className={s.skill}>
-          <FaNodeJs className={s.icon} />
-          <p>NodeJs</p>
-        </div>
-        <div className={s.skill}>
-          <SiExpress className={s.icon} />
-          <p>Express</p>
-        </div>
-        <div className={s.skill}>
-          <SiSequelize className={s.icon} />
-          <p>Sequelize</p>
-        </div>
-        <div className={s.skill}>
-          <SiPostgresql className={s.icon} />
-          <p>PostgreSQL</p>
-        </div>
-        <div className={s.skill}>
-          <FaReact className={s.icon} />
-          <p>React</p>
-        </div>
-        <div className={s.skill}>
-          <SiRedux className={s.icon} />
-          <p>Redux</p>
-        </div>
-        <div className={s.skill}>
-          <FaReact className={s.icon} />
-          <p>React Native</p>
-        </div>
-        <div className={s.skill}>
-          <SiExpo className={s.icon} />
-          <p>Expo</p>
-        </div>
-        <div className={s.skill}>
-          <RiNextjsLine className={s.icon} />
-          <p>Next.js</p>
-        </div>
-        <div className={s.skill}>
-          <SiNestjs className={s.icon} />
-          <p>NestJS</p>
-        </div>
-        <div className={s.skill}>
-          <FaBootstrap className={s.icon} />
-          <p>Bootstrap</p>
-        </div>
-        <div className={s.skill}>
-          <SiTailwindcss className={s.icon} />
-          <p>Tailwind</p>
-        </div>
-        <div className={s.skill}>
-          <FaDocker className={s.icon} />
-          <p>Docker</p>
-        </div>
-        <div className={s.skill}>
-          <FaAws className={s.icon} />
-          <p>AWS</p>
-        </div>
-        <div className={s.skill}>
-          <SiNginx className={s.icon} />
-          <p>Nginx</p>
-        </div>
-        <div className={s.skill}>
-          <FaGitAlt className={s.icon} />
-          <p>Git</p>
+      </div>
+
+      {/* DevOps & Herramientas */}
+      <div className={s.categorySection}>
+        <h3 className={s.categoryTitle}>DevOps & Herramientas</h3>
+        <div className={s.skills}>
+          <div className={s.skill}>
+            <FaDocker className={s.icon} />
+            <p>Docker</p>
+          </div>
+          <div className={s.skill}>
+            <FaAws className={s.icon} />
+            <p>AWS</p>
+          </div>
+          <div className={s.skill}>
+            <SiNginx className={s.icon} />
+            <p>Nginx</p>
+          </div>
+          <div className={s.skill}>
+            <FaGitAlt className={s.icon} />
+            <p>Git</p>
+          </div>
         </div>
       </div>
     </div>

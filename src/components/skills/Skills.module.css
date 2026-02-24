@@ -6,7 +6,18 @@
 
 .title {
   font-size: 4.2rem;
-  margin-bottom: 5.5rem;
+  margin-bottom: 3rem;
+}
+
+.categorySection {
+  margin-bottom: 4rem;
+}
+
+.categoryTitle {
+  font-size: 2.8rem;
+  color: var(--main-color);
+  margin-bottom: 2.5rem;
+  font-weight: 600;
 }
 
 .skills {
