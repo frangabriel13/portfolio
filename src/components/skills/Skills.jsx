@@ -19,6 +19,18 @@ import { FaGitAlt } from "react-icons/fa";
 import { SiExpo } from "react-icons/si";
 import { RiNextjsLine } from "react-icons/ri";
 import { SiNestjs } from "react-icons/si";
+import { SiVite } from "react-icons/si";
+import { TbBrandPrisma } from "react-icons/tb";
+import { GrMysql } from "react-icons/gr";
+import { SiMongodb } from "react-icons/si";
+import { AiOutlinePython } from "react-icons/ai";
+import { GrGraphQl } from "react-icons/gr";
+import { SiSocketdotio } from "react-icons/si";
+import { SiJest } from "react-icons/si";
+import { SiPostman } from "react-icons/si";
+import { DiDjango } from "react-icons/di";
+import { SiTrello } from "react-icons/si";
+import { SiJira } from "react-icons/si";
 
 const Skills = () => {
   return (
@@ -77,6 +89,10 @@ const Skills = () => {
             <SiTailwindcss className={s.icon} />
             <p>Tailwind</p>
           </div>
+          <div className={s.skill}>
+            <SiVite className={s.icon} />
+            <p>Vite</p>
+          </div>
         </div>
       </div>
 
@@ -97,12 +113,40 @@ const Skills = () => {
             <p>NestJS</p>
           </div>
           <div className={s.skill}>
+            <DiDjango className={s.icon} />
+            <p>Django</p>
+          </div>
+          <div className={s.skill}>
             <SiSequelize className={s.icon} />
             <p>Sequelize</p>
           </div>
           <div className={s.skill}>
             <SiPostgresql className={s.icon} />
             <p>PostgreSQL</p>
+          </div>
+          <div className={s.skill}>
+            <GrMysql className={s.icon} />
+            <p>MySQL</p>
+          </div>
+          <div className={s.skill}>
+            <SiMongodb className={s.icon} />
+            <p>MongoDB</p>
+          </div>
+          <div className={s.skill}>
+            <TbBrandPrisma className={s.icon} />
+            <p>Prisma</p>
+          </div>
+          <div className={s.skill}>
+            <GrGraphQl className={s.icon} />
+            <p>GraphQL</p>
+          </div>
+          <div className={s.skill}>
+            <SiSocketdotio className={s.icon} />
+            <p>Socket.io</p>
+          </div>
+          <div className={s.skill}>
+            <AiOutlinePython className={s.icon} />
+            <p>Python</p>
           </div>
         </div>
       </div>
@@ -126,6 +170,22 @@ const Skills = () => {
           <div className={s.skill}>
             <FaGitAlt className={s.icon} />
             <p>Git</p>
+          </div>
+          <div className={s.skill}>
+            <SiJest className={s.icon} />
+            <p>Jest</p>
+          </div>
+          <div className={s.skill}>
+            <SiPostman className={s.icon} />
+            <p>Postman</p>
+          </div>
+          <div className={s.skill}>
+            <SiTrello className={s.icon} />
+            <p>Trello</p>
+          </div>
+          <div className={s.skill}>
+            <SiJira className={s.icon} />
+            <p>Jira</p>
           </div>
         </div>
       </div>
