@@ -17,6 +17,9 @@ import { FaDocker } from "react-icons/fa";
 import { FaAws } from "react-icons/fa";
 import { SiNginx } from "react-icons/si";
 import { FaGitAlt } from "react-icons/fa";
+import { SiExpo } from "react-icons/si";
+import { RiNextjsLine } from "react-icons/ri";
+import { SiNestjs } from "react-icons/si";
 
 const Skills = () => {
   const skills = ["JavaScript", "TypeScript", "WordPress", "HTML", "CSS", "Node.js", 
@@ -75,6 +78,22 @@ const Skills = () => {
         <div className={s.skill}>
           <SiRedux className={s.icon} />
           <p>Redux</p>
+        </div>
+        <div className={s.skill}>
+          <FaReact className={s.icon} />
+          <p>React Native</p>
+        </div>
+        <div className={s.skill}>
+          <SiExpo className={s.icon} />
+          <p>Expo</p>
+        </div>
+        <div className={s.skill}>
+          <RiNextjsLine className={s.icon} />
+          <p>Next.js</p>
+        </div>
+        <div className={s.skill}>
+          <SiNestjs className={s.icon} />
+          <p>NestJS</p>
         </div>
         <div className={s.skill}>
           <FaBootstrap className={s.icon} />
