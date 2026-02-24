@@ -73,7 +73,7 @@ const Projects = () => {
       <h2>Projects</h2>
       <div className={s.projects}>
         {projectsData.map((project, index) => (
-          <div key={index} className={s.projectContainer}>
+          <div key={index} className={`${s.projectContainer} ${index === openIndex ? s.activeContainer : ''}`}>
             <ProjectCard
               image={project.image}
               title={project.title}

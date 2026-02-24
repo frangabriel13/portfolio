@@ -3,18 +3,52 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .container h2 {
-  font-size: 4.2rem;
-  font-weight: bold;
-  margin-bottom: 5.5rem;
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--main-color), var(--second-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  position: relative;
+}
+
+.container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8rem;
+  height: 0.4rem;
+  background: linear-gradient(90deg, var(--main-color), var(--second-color));
+  border-radius: 0.2rem;
 }
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  grid-gap: 5rem;
+  width: 100%;
+  max-width: 130rem;
+  margin-top: 5rem;
+  padding: 2rem 0;
+}
+
+.projectContainer {
+  position: relative;
+  z-index: 1;
+  transition: z-index 0.1s ease;
+}
+
+.projectContainer.activeContainer {
+  z-index: 10;
 }
 
 /* .closeButton {
@@ -33,24 +67,57 @@
   background-color: var(--second-color);
 } */
 
+@media (max-width: 1200px) {
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    grid-gap: 4rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 4rem 5%;
+  }
+  
+  .container h2 {
+    font-size: 3.5rem;
+  }
+  
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 3.5rem;
+    margin-top: 4rem;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
-    padding: 3rem 6%;
+    padding: 3rem 4%;
   }
   
   .container h2 {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0.8rem;
   }
   
   .projects {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 3rem;
+    grid-template-columns: 1fr;
+    grid-gap: 4rem;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    padding: 2.5rem 3%;
   }
   
-  /* .closeButton {
-    bottom: -2rem;
-    right: 0.5rem;
-    padding: 0.3rem 0.8rem;
-  } */
+  .container h2 {
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+  }
+  
+  .projects {
+    grid-gap: 3rem;
+  }
 }
