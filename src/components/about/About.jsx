@@ -32,18 +32,21 @@ const About = () => {
           <h5 className={s.role}>Full Stack Developer</h5>
         </div>
         <div className={s.rightSection}>
-          <p className={s.description}>Soy Full Stack Developer con experiencia. Comencé a estudiar desarrollo web de forma autodidacta, 
-          aprendiendo tecnologías demandadas por la industria que me permitieron desarrollar numerosos proyectos y seguir perfeccionando 
-          mis habilidades. <br /><br />
+          <p className={s.description}>Soy Full Stack Developer con experiencia en el desarrollo de soluciones web y mobile. Inicié mi camino de forma autodidacta, 
+            especializándome en tecnologías demandadas por la industria y desarrollando múltiples proyectos que me permitieron consolidar mis habilidades 
+            técnicas. <br /><br />
 
-          En mis inicios, comencé desarrollando la E-commerce de varias tiendas de ropa de Buenos Aires. Gracias a que mis trabajos contentaron
-          a mis clientes, algunos se unieron con el fin de contratarme para un proyecto mucho mas ambicioso. Crear una aplicación B2B (Bussiness to Businnes) 
-          que conecte fabricantes con mayoristas. Hoy puedo decir que sigo trabajando en Fabricante Directo realizando mantenimiento y actualizando la app.
-          Como buen profesional, mi compromiso con el trabajo es inquebrantable y me esfuerzo por alcanzar los mejores resultados en cada proyecto 
-          en el que me involucro. <br /><br />
+            Comencé creando plataformas E-commerce para distintas tiendas de ropa en Buenos Aires. Gracias a los resultados obtenidos, 
+            fui convocado para participar en un proyecto de mayor escala: el desarrollo de una plataforma B2B que conecta fabricantes con mayoristas, 
+            llamada Fabricante Directo. En este proyecto lideré el desarrollo integral de la aplicación, 
+            tanto en su versión web como en las aplicaciones mobile para Android e iOS, encargándome además del mantenimiento, 
+            la optimización y la evolución continua del sistema. Actualmente continúo trabajando en la mejora de la plataforma, 
+            incorporando nuevas funcionalidades y garantizando su estabilidad y rendimiento. <br /><br />
 
-          La programación me ha dado un propósito y me ha enseñado que con perseverancia y dedicación, 
-          cualquier obstáculo puede ser superado.</p>
+            En 2026 comencé la carrera de Ingeniería Informática en la Universidad Nacional de La Matanza (UNLaM), 
+            complementando mi formación autodidacta con bases académicas sólidas. La programación no solo es mi profesión, sino también mi vocación. 
+            Me caracterizo por el compromiso, la responsabilidad y la búsqueda constante de excelencia en cada proyecto que desarrollo.
+          </p>
         </div>
       </div>
     </div>
