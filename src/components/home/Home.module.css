@@ -106,8 +106,11 @@
 
 .image {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   height: auto;
+  object-fit: contain;
+  border-radius: 1rem;
+  filter: drop-shadow(0 0 2rem var(--main-color));
 }
 
 @media screen and (max-width: 768px) {
