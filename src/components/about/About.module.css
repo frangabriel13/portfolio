@@ -5,11 +5,14 @@
   background-color: var(--second-bg-color);
   display: flex;
   flex-direction: column;
+  /* min-height: 100vh; */
+  justify-content: center;
 }
 
 .title {
   font-size: 4.2rem;
   margin-bottom: 5.5rem;
+  font-weight: 700;
 }
 
 .title span {
@@ -21,63 +24,121 @@
   justify-content: space-between;
   flex: 1;
   align-items: center;
+  gap: 5rem;
+  max-width: 1400px;
+  width: 100%;
 }
 
 .leftSection {
-  width: 30%;
+  flex: 0 0 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .image {
-  width: 20rem;
-  height: 20rem;
+  width: 22rem;
+  height: 22rem;
   border-radius: 50%;
-  border: .2rem solid var(--main-color);
-  margin-bottom: 1rem;
+  border: .3rem solid var(--main-color);
   object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+}
+
+.image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 3rem var(--main-color);
+  border-color: var(--text-color);
 }
 
 .name {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0;
   color: var(--text-color);
+  letter-spacing: 0.05rem;
 }
 
 .role {
-  font-size: 1.9rem;
+  font-size: 2rem;
   color: var(--main-color);
+  font-weight: 600;
+  margin: 0;
 }
 
 .rightSection {
-  width: 70%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .description {
   font-size: 1.6rem;
-  line-height: 1.5;
+  line-height: 1.8;
   color: var(--text-color);
+  max-width: 800px;
+  text-align: justify;
+  opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+  .about {
+    gap: 3rem;
+  }
+  
+  .leftSection {
+    flex: 0 0 35%;
+  }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 5.5rem 5%;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+  }
+
   .about {
     flex-direction: column;
+    gap: 3rem;
   }
 
   .leftSection {
     width: 100%;
-    order: 2;
+    order: 1;
+    flex: none;
+  }
+
+  .image {
+    width: 18rem;
+    height: 18rem;
   }
 
   .rightSection {
     width: 100%;
-    order: 1;
-    margin-bottom: 3rem;
+    order: 2;
+    align-items: center;
+    text-align: center;
+  }
+
+  .description {
+    text-align: justify;
+    font-size: 1.5rem;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .role {
+    font-size: 1.8rem;
   }
 }
 
@@ -89,7 +150,7 @@
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
