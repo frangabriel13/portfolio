@@ -36,9 +36,10 @@ const About = () => {
             especializándome en tecnologías demandadas por la industria y desarrollando múltiples proyectos que me permitieron consolidar mis habilidades 
             técnicas. <br /><br />
 
-            Comencé creando plataformas E-commerce para distintas tiendas de ropa en Buenos Aires. Gracias a los resultados obtenidos, 
-            fui convocado para participar en un proyecto de mayor escala: el desarrollo de una plataforma B2B que conecta fabricantes con mayoristas, 
-            llamada Fabricante Directo. En este proyecto lideré el desarrollo integral de la aplicación, 
+            Comencé de manera freelance creando plataformas E-commerce para distintas tiendas de ropa en Buenos Aires; incluso trabajé para clientes del exterior. 
+            Gracias a los resultados obtenidos, fui convocado para participar en un proyecto de mayor escala: 
+            el desarrollo de una plataforma B2B que conecta fabricantes con mayoristas, llamada Fabricante Directo. 
+            En este proyecto lideré el desarrollo integral de la aplicación, 
             tanto en su versión web como en las aplicaciones mobile para Android e iOS, encargándome además del mantenimiento, 
             la optimización y la evolución continua del sistema. Actualmente continúo trabajando en la mejora de la plataforma, 
             incorporando nuevas funcionalidades y garantizando su estabilidad y rendimiento. <br /><br />
