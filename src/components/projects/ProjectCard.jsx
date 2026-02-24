@@ -3,8 +3,8 @@ import s from "./ProjectCard.module.css";
 
 const ProjectCard = ({ image, description, title, link, git, isOpen, onToggleDescription }) => {
   return (
-    <div className={s.card}>
-      <div className={s.imageContainer}>
+    <div className={`${s.card} ${isOpen ? s.cardOpen : ''}`}>
+      <div className={`${s.imageContainer} ${isOpen ? s.imageContainerOpen : ''}`}>
         <a href={link} target="_blank">
           <img src={image} alt="Project" className={s.image} />
         </a>
