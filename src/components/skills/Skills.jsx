@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./Skills.module.css";
 import { AiOutlineHtml5 } from "react-icons/ai";
 import { FaCss3 } from "react-icons/fa";
@@ -22,10 +21,6 @@ import { RiNextjsLine } from "react-icons/ri";
 import { SiNestjs } from "react-icons/si";
 
 const Skills = () => {
-  const skills = ["JavaScript", "TypeScript", "WordPress", "HTML", "CSS", "Node.js", 
-    "Express", "Sequelize", "PostgreSQL", "MongoDB", "Mongoose", "MySQL", "React", 
-    "React Native", "Redux", "Bootstrap", "Tailwind"];
-  
   return (
     <div className={s.container} id="skills">
       <h2 className={s.title}>Skills</h2>
