@@ -28,16 +28,16 @@ const Home = () => {
         </div>
         <div className={s.socialIcons}>
           <a href="https://www.linkedin.com/in/frangabriel13/" target="_blank">
-            <i className={`bx bxl-linkedin ${s.icon}`}></i>
+            <i className="bx bxl-linkedin"></i>
           </a>
           <a href="https://www.instagram.com/frangabriel.13/" target="_blank">
-            <i className={`bx bxl-instagram ${s.icon}`}></i>
+            <i className="bx bxl-instagram"></i>
           </a>
           <a href="https://twitter.com/frangabriel13_/" target="_blank">
-            <i className={`bx bxl-twitter ${s.icon}`}></i>
+            <i className="bx bxl-twitter"></i>
           </a>
           <a href="https://github.com/frangabriel13/" target="_blank">
-            <i className={`bx bxl-github ${s.icon}`}></i>
+            <i className="bx bxl-github"></i>
           </a>
         </div>
       </div>
