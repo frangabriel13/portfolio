@@ -6,9 +6,10 @@
   padding: 5.5rem 9%;
 }
 
-.container h2 {
+.title {
   font-size: 4.2rem;
   margin-bottom: 5.5rem;
+  font-weight: 700;
 }
 
 .title span {
@@ -182,6 +183,15 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 5.5rem 5%;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+  }
+
   .wrapper {
     flex-direction: column;
   }
