@@ -189,8 +189,7 @@
   bottom: 1rem;
   right: 50%;
   transform: translateX(50%);
-  background: linear-gradient(to right, var(--main-color) 50%, var(--text-color) 50%);
-  background-size: 200% 100%;
+  background: var(--main-color);
   color: #ffffff;
   border: none;
   border-radius: .5rem;
@@ -199,15 +198,13 @@
   font-weight: 600;
   cursor: pointer;
   z-index: 101;
-  transition: background-position 0.3s;
   letter-spacing: 0.1rem;
+  transition: background 0.3s, color 0.3s;
 }
 
-.button:hover {
-  background-position: -100% 0;
+.button.buttonOpen {
+  background: #ffffff;
   color: var(--bg-color);
-  transition: .5s;
-  transform: translateX(50%);
 }
 
 

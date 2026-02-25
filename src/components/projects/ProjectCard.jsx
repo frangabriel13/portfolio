@@ -23,7 +23,7 @@ const ProjectCard = ({ image, description, title, link, git, isOpen, onToggleDes
           <p>{description}</p>
         </div>
       )}
-      <button className={s.button} onClick={onToggleDescription}>
+      <button className={`${s.button} ${isOpen ? s.buttonOpen : ''}`} onClick={onToggleDescription}>
         {isOpen ? "Ver menos" : "Ver más"}
       </button>
     </div>

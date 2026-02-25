@@ -67,8 +67,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  background: linear-gradient(to right, #25D366 50%, #1ebd5a 50%);
-  background-size: 200% 100%;
+  background: #25D366;
   color: #FFFFFF;
   font-size: 1.6rem;
   padding: 1rem 2rem;
@@ -77,18 +76,12 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  transition: background-position 0.3s;
 }
 
 .whatsappButton svg {
   font-size: 2rem;
   width: 2rem;
   height: 2rem;
-}
-
-.whatsappButton:hover {
-  background-position: -100% 0;
-  transition: .5s;
 }
 
 .icons {
@@ -105,12 +98,6 @@
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem 1.5rem;
   border-radius: 1rem;
-  transition: all 0.3s ease;
-}
-
-.iconItem:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateX(0.5rem);
 }
 
 .iconItem span {
@@ -150,20 +137,12 @@
   align-items: center;
   width: 4rem;
   height: 4rem;
-  background: linear-gradient(to right, var(--bg-color) 50%, var(--text-color) 50%);
-  background-size: 200% 100%;
+  background: var(--bg-color);
   border: .2rem solid var(--main-color);
   border-radius: 50%;
   font-size: 2rem;
   color: var(--main-color);
   cursor: pointer;
-  transition: background-position 0.3s;
-}
-
-.socialIcons a:hover {
-  background-position: -100% 0;
-  color: var(--bg-color);
-  border: .2rem solid var(--text-color);
 }
 
 .form {
@@ -231,21 +210,13 @@
 
 .sendButton {
   align-self: flex-end;
-  background: linear-gradient(to right, var(--main-color) 50%, var(--text-color) 50%);
-  background-size: 200% 100%;
+  background: var(--main-color);
   color: #ffffff;
   border: none;
   border-radius: .5rem;
   padding: 1rem 2rem;
   font-size: 1.6rem;
   cursor: pointer;
-  transition: background-position 0.3s;
-}
-
-.sendButton:hover {
-  background-position: -100% 0;
-  color: var(--bg-color);
-  transition: .5s;
 }
 
 @media (max-width: 768px) {
