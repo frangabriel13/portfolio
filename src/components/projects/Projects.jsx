@@ -70,7 +70,7 @@ const Projects = () => {
 
   return (
     <div className={s.container} id="projects">
-      <h2>Projects</h2>
+      <h2 className={s.title}>My <span>Projects</span></h2>
       <div className={s.projects}>
         {projectsData.map((project, index) => (
           <div key={index} className={`${s.projectContainer} ${index === openIndex ? s.activeContainer : ''}`}>
