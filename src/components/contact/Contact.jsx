@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import s from "./Contact.module.css";
 import emailjs from '@emailjs/browser';
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   const form = useRef();
@@ -33,6 +34,7 @@ const Contact = () => {
             <h4>Informacion de contacto</h4>
             <p>Contactame por mail llenando el formulario de contacto, o bien, hazlo por las redes.</p>
             <a href="https://api.whatsapp.com/send?phone=541158742482" className={s.whatsappButton} target="_blank">
+              <FaWhatsapp />
               WhatsApp
             </a>
             <div className={s.icons}>
@@ -48,16 +50,16 @@ const Contact = () => {
           </div>
           <div className={s.socialIcons}>
             <a href="https://www.linkedin.com/in/frangabriel13/" target="_blank">
-              <i className={`bx bxl-linkedin ${s.icon}`}></i>
+              <i className="bx bxl-linkedin"></i>
             </a>
             <a href="https://www.instagram.com/frangabriel.13/" target="_blank">
-              <i className={`bx bxl-instagram ${s.icon}`}></i>
+              <i className="bx bxl-instagram"></i>
             </a>
             <a href="https://twitter.com/frangabriel13_/" target="_blank">
-              <i className={`bx bxl-twitter ${s.icon}`}></i>
+              <i className="bx bxl-twitter"></i>
             </a>
             <a href="https://github.com/frangabriel13/" target="_blank">
-              <i className={`bx bxl-github ${s.icon}`}></i>
+              <i className="bx bxl-github"></i>
             </a>
           </div>
         </div>
