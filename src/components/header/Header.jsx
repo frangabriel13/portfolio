@@ -40,19 +40,22 @@ function Header() {
   };
 
   return (
-    <div className={`${s.container} ${isScrolled ? s.scrolled : ""}`}>
-        <a href="#home" className={s.logo}>Franco.</a>
-        <nav className={`${s.navbar} ${menuOpen ? s.open : ''}`}>
-            <a href="#home" className={s.home} onClick={() => toggleMenu('home')}>Home</a>
-            <a href="#about" onClick={() => toggleMenu('about')}>About</a>
-            <a href="#skills" onClick={() => toggleMenu('skills')}>Skills</a>
-            <a href="#projects" onClick={() => toggleMenu('projects')}>Projects</a>
-            <a href="#contact" onClick={() => toggleMenu('contact')}>Contact</a>
-        </nav>
-        <div className={s.navToggle}>
-          <i className={`bx bx-menu ${s.icon}`} onClick={toggleMenu}></i>
-        </div>
-    </div>
+    <>
+      {menuOpen && <div className={s.overlay} onClick={toggleMenu}></div>}
+      <div className={`${s.container} ${isScrolled ? s.scrolled : ""}`}>
+          <a href="#home" className={s.logo}>Franco.</a>
+          <nav className={`${s.navbar} ${menuOpen ? s.open : ''}`}>
+              <a href="#home" className={s.home} onClick={() => toggleMenu('home')}>Home</a>
+              <a href="#about" onClick={() => toggleMenu('about')}>About</a>
+              <a href="#skills" onClick={() => toggleMenu('skills')}>Skills</a>
+              <a href="#projects" onClick={() => toggleMenu('projects')}>Projects</a>
+              <a href="#contact" onClick={() => toggleMenu('contact')}>Contact</a>
+          </nav>
+          <div className={s.navToggle}>
+            <i className={`bx ${menuOpen ? 'bx-x' : 'bx-menu'} ${s.icon}`} onClick={toggleMenu}></i>
+          </div>
+      </div>
+    </>
   );
 }
 
