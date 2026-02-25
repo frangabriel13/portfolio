@@ -90,24 +90,26 @@
 }
 
 .iconContainer a i {
-  font-size: 4.5rem;
-  color: var(--text-color);
-  background: linear-gradient(135deg, var(--main-color), var(--second-color));
-  padding: 1.2rem;
+  font-size: 3.5rem;
+  color: var(--main-color);
+  background: linear-gradient(to right, var(--bg-color) 50%, var(--text-color) 50%);
+  background-size: 200% 100%;
+  border: .2rem solid var(--main-color);
+  padding: 1rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+  transition: background-position 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 6.5rem;
-  height: 6.5rem;
+  width: 6rem;
+  height: 6rem;
 }
 
 .iconContainer a i:hover {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 0.8rem 2rem rgba(36, 160, 204, 0.5);
+  background-position: -100% 0;
+  color: var(--bg-color);
+  border: .2rem solid var(--text-color);
 }
 
 .imageContainer:hover .iconContainer {
@@ -187,30 +189,25 @@
   bottom: 1rem;
   right: 50%;
   transform: translateX(50%);
-  background: linear-gradient(135deg, var(--main-color), var(--second-color));
-  color: var(--text-color);
+  background: linear-gradient(to right, var(--main-color) 50%, var(--text-color) 50%);
+  background-size: 200% 100%;
+  color: #ffffff;
   border: none;
-  border-radius: 2.5rem;
-  padding: 1rem 2.5rem;
+  border-radius: .5rem;
+  padding: 1rem 2rem;
   font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
   z-index: 101;
-  transition: all 0.3s ease;
-  box-shadow: 0 0.4rem 1rem rgba(36, 160, 204, 0.3);
-  text-transform: uppercase;
+  transition: background-position 0.3s;
   letter-spacing: 0.1rem;
 }
 
 .button:hover {
-  transform: translateX(50%) translateY(-0.3rem);
-  box-shadow: 0 0.6rem 1.5rem rgba(36, 160, 204, 0.5);
-  background: linear-gradient(135deg, var(--second-color), var(--main-color));
-}
-
-.button:active {
-  transform: translateX(50%) translateY(-0.1rem);
-  box-shadow: 0 0.3rem 0.8rem rgba(36, 160, 204, 0.4);
+  background-position: -100% 0;
+  color: var(--bg-color);
+  transition: .5s;
+  transform: translateX(50%);
 }
 
 
