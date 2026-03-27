@@ -1,158 +1,346 @@
+/* ───────────────────────────────────────────
+   CONTAINER
+─────────────────────────────────────────── */
 .container {
   display: flex;
   min-height: 100vh;
-  padding: 5.5rem 9% 2rem;
+  padding: 5.5rem var(--page-padding) 2rem;
   align-items: center;
+  gap: 4rem;
+  position: relative;
 }
 
+/* ───────────────────────────────────────────
+   LEFT SECTION
+─────────────────────────────────────────── */
 .leftSection {
-  flex: 1; /* se expandirá y ocupará todo el espacio disponible dentro de su contenedor */
-  background-color: var(--bg-color);
+  flex: 0 0 54%;
+  max-width: 54%;
 }
 
-.title {
-  font-size: 5.6rem;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--text-color);
+/* ───────────────────────────────────────────
+   BADGE / SUBTITLE
+─────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.55rem 1.2rem 0.55rem 0.9rem;
+  background: rgba(36, 160, 204, 0.07);
+  border: 1px solid rgba(36, 160, 204, 0.18);
+  border-radius: 100px;
+  margin-bottom: 2.4rem;
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease 0s both;
+}
+
+.badgeDot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--main-color);
+  flex-shrink: 0;
+  animation: dotPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.3; transform: scale(0.75); }
 }
 
 .subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
   color: var(--main-color);
-  font-size: 3.3rem;
-  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.description {
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
-}
-
-.btns {
-  margin-bottom: 2rem;
-}
-
-.btns button {
-  font-size: 1.6rem;
-  padding: 1rem 2rem;
-  margin-right: 1rem;
-  border-radius: .5rem;
-  cursor: pointer;
-
-  background-size: 200% 100%;
-  transition: background-position 0.3s;
-}
-
-.btnOne {
-  background: linear-gradient(to right, var(--main-color) 50%, var(--text-color) 50%);
-  color: #ffffff;
-}
-
-.btnOne:hover {
-  background-position: -100% 0;
-  color: var(--bg-color);
-  transition: .5s;
-}
-
-.btnTwo {
-  background: linear-gradient(to right, var(--bg-color) 50%, var(--text-color) 50%);
+/* ───────────────────────────────────────────
+   TITLE
+─────────────────────────────────────────── */
+.title {
+  font-size: 6.4rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   color: var(--text-color);
-  box-shadow: inset 0 0 0 .1rem var(--text-color);
+  margin-bottom: 2.4rem;
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease 0.12s both;
 }
 
-.btnTwo:hover {
-  background-position: -100% 0;
-  transition: .5s;
-  color: var(--bg-color);
+/* "Franco" en color acento */
+.titleAccent {
+  color: var(--main-color);
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Línea de acento bajo el nombre */
+.titleAccent::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--main-color);
+  border-radius: 2px;
+  opacity: 0.3;
+}
+
+/* ───────────────────────────────────────────
+   DESCRIPTION
+─────────────────────────────────────────── */
+.description {
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: var(--text-color);
+  opacity: 0; /* sobreescrito por la animación */
+  max-width: 46ch;
+  margin-bottom: 3.6rem;
+
+  animation: fadeSlideUp 0.6s ease 0.24s both;
+}
+
+/* ───────────────────────────────────────────
+   BUTTONS
+─────────────────────────────────────────── */
+.btns {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease 0.36s both;
+}
+
+.btnPrimary,
+.btnSecondary {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.15rem 2.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.btnPrimary {
+  background: var(--main-color);
+  color: #fff;
+  border: 1.5px solid var(--main-color);
+}
+
+.btnPrimary:hover {
+  background: var(--second-color);
+  border-color: var(--second-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(36, 160, 204, 0.32);
+}
+
+.btnPrimary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text-color);
+  border: 1.5px solid rgba(237, 237, 237, 0.22);
+}
+
+.btnSecondary:hover {
+  border-color: rgba(237, 237, 237, 0.55);
+  background: rgba(237, 237, 237, 0.05);
+  transform: translateY(-2px);
+}
+
+.btnSecondary:active {
+  transform: translateY(0);
+}
+
+/* ───────────────────────────────────────────
+   SOCIAL ICONS
+─────────────────────────────────────────── */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease 0.48s both;
+}
+
+/* Línea divisoria */
+.socialLine {
+  display: block;
+  width: 2.4rem;
+  height: 1.5px;
+  background: rgba(237, 237, 237, 0.18);
+  flex-shrink: 0;
 }
 
 .socialIcons {
-  bottom: 4rem;
-  width: 20rem;
   display: flex;
-  justify-content: space-between;
+  gap: 0.2rem;
 }
 
-.socialIcons a {
+.socialLink {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
-  background: linear-gradient(to right, var(--bg-color) 50%, var(--text-color) 50%);
-  background-size: 200% 100%;
-  border: .2rem solid var(--main-color);
-  border-radius: 50%;
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 8px;
   font-size: 2rem;
+  color: rgba(237, 237, 237, 0.45);
+  transition: color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+
+.socialLink:hover {
   color: var(--main-color);
-  cursor: pointer;
-  transition: background-position 0.3s;
+  background: rgba(36, 160, 204, 0.08);
+  transform: translateY(-2px);
 }
 
-.socialIcons a:hover {
-  background-position: -100% 0;
-  color: var(--bg-color);
-  border: .2rem solid var(--text-color);
-}
-
+/* ───────────────────────────────────────────
+   RIGHT SECTION / IMAGE
+─────────────────────────────────────────── */
 .rightSection {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding: 2rem;
-  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.imageWrapper {
   position: relative;
+  display: inline-block;
+
+  opacity: 0;
+  animation: fadeSlideLeft 0.8s ease 0.2s both;
+}
+
+/* Halo de luz detrás de la imagen */
+.imageGlow {
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(36, 160, 204, 0.11) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .image {
   width: 100%;
-  max-width: 450px;
+  max-width: 460px;
   height: auto;
   object-fit: contain;
-  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%),
-              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%),
-                      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  position: relative;
+  z-index: 1;
+  mask-image:
+    linear-gradient(to right,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image:
+    linear-gradient(to right,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }
 
+/* ───────────────────────────────────────────
+   SCROLL HINT
+─────────────────────────────────────────── */
+.scrollHint {
+  position: absolute;
+  bottom: 3.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease 0.9s both;
+}
+
+.scrollLine {
+  display: block;
+  width: 1.5px;
+  height: 38px;
+  background: linear-gradient(to bottom, transparent, var(--main-color));
+  border-radius: 2px;
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+
+@keyframes scrollDrop {
+  0%   { opacity: 0;   transform: scaleY(0.3) translateY(-40%); }
+  40%  { opacity: 1;   transform: scaleY(1)   translateY(0);    }
+  100% { opacity: 0;   transform: scaleY(0.3) translateY(40%);  }
+}
+
+/* ───────────────────────────────────────────
+   KEYFRAMES
+─────────────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(22px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+/* ───────────────────────────────────────────
+   RESPONSIVE — MOBILE
+─────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
   .container {
-    flex-direction: column; /* Cambiar a dirección de columna */
-    padding: 5.5rem 2rem; /* Reducir el relleno */
-  }
-
-  .leftSection,
-  .rightSection {
-    flex: none; 
-    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5.5rem var(--page-padding-mobile) 4rem;
+    gap: 3.2rem;
+    min-height: 100svh;
   }
 
   .leftSection {
-    margin-bottom: 2rem;
+    flex: none;
+    max-width: 100%;
+    width: 100%;
   }
 
-  .subtitle {
-    font-size: 3rem;
+  .title {
+    font-size: 4.8rem;
+    letter-spacing: -0.025em;
   }
-}
 
-.title,
-.subtitle,
-.description,
-.image {
-  opacity: 0; /* Establece la opacidad inicial en 0 */
-  animation: fade-in 1s ease-in-out forwards; /* Aplica la animación de fade-in */
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  .description {
+    font-size: 1.6rem;
+    max-width: 100%;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .rightSection {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .image {
+    max-width: 320px;
+  }
+
+  .scrollHint {
+    display: none;
   }
 }
