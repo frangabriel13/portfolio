@@ -3,58 +3,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
 }
 
 .title {
   font-size: 4.2rem;
-  margin-bottom: 5.5rem;
   font-weight: 700;
+  margin-bottom: 5.5rem;
+  text-align: center;
 }
 
 .title span {
   color: var(--main-color);
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-  grid-gap: 5rem;
+.featured {
   width: 100%;
   max-width: 130rem;
-  padding: 2rem 0;
+  margin-bottom: 3.2rem;
 }
 
-.projectContainer {
-  position: relative;
-  z-index: 1;
-  transition: z-index 0.1s ease;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 130rem;
 }
 
-.projectContainer.activeContainer {
-  z-index: 10;
-}
-
-/* .closeButton {
-  position: absolute;
-  bottom: -3rem;
-  right: 0;
-  background-color: var(--main-color);
-  color: var(--text-color);
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
-
-.closeButton:hover {
-  background-color: var(--second-color);
-} */
+/* Staggered fade-up for grid cards */
+.grid > *:nth-child(1) { animation-delay: 0.05s; }
+.grid > *:nth-child(2) { animation-delay: 0.10s; }
+.grid > *:nth-child(3) { animation-delay: 0.15s; }
+.grid > *:nth-child(4) { animation-delay: 0.20s; }
+.grid > *:nth-child(5) { animation-delay: 0.25s; }
+.grid > *:nth-child(6) { animation-delay: 0.30s; }
 
 @media (max-width: 1200px) {
-  .projects {
-    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-    grid-gap: 4rem;
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -62,31 +48,20 @@
   .container {
     padding: 4rem 5%;
   }
-  
-  .projects {
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 3.5rem;
-  }
 }
 
 @media (max-width: 768px) {
   .container {
     padding: 3rem 4%;
   }
-  
+
   .title {
     font-size: 3.5rem;
     margin-bottom: 4rem;
   }
-  
-  .projects {
-    grid-template-columns: 1fr;
-    grid-gap: 4rem;
-  }
-}
 
-@media (max-width: 450px) {
-  .projects {
-    grid-gap: 3rem;
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
