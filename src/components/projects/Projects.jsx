@@ -18,7 +18,7 @@ const Projects = () => {
       git: "https://github.com/frangabriel13/fabricante-directo",
       description:
         "Aplicación B2B que reune fabricantes textiles con mayoristas. Me ocupé mayormente del backend diseñando una arquitectura de microservicios. Utilicé stack PERN junto a servicios de AWS como S3, EC2 y RDS.",
-      stack: ["PERN", "Microservicios", "AWS S3", "EC2", "RDS"],
+      stack: ["NodeJs", "Microservicios", "AWS", "PostgreSQL", "React"],
       featured: true,
     },
     {
@@ -28,7 +28,7 @@ const Projects = () => {
       git: "https://github.com/frangabriel13/restful",
       description:
         "Sitio web de una funeraria de Estados Unidos (en idioma inglés y español). Página informativa de la empresa, con detalles sobre sus servicios y contacto. Además, cuenta con un dashboard para la gestión de clientes manejado por un administrador y cuentas de empleados.",
-      stack: ["React", "Node.js", "PostgreSQL", "Dashboard"],
+      stack: ["React", "NodeJs", "PostgreSQL", "JavaScript", "multilenguaje"],
     },
     {
       title: "Africa Mía",
@@ -37,7 +37,7 @@ const Projects = () => {
       git: "https://github.com/frangabriel13/africaMia",
       description:
         "E-commerce autogestionada para una tienda de jeans de dama. Usé stack PERN e implementé AWS S3 para el guardado de imágenes.",
-      stack: ["PERN", "AWS S3", "E-commerce"],
+      stack: ["JavaScript", "NodeJs", "Express", "React", "E-commerce"],
     },
     {
       title: "Tirria",
@@ -46,7 +46,7 @@ const Projects = () => {
       git: "https://github.com/frangabriel13/tirria-sol",
       description:
         "E-commerce autogestionada para una tienda de indumentaria femenina. Usé stack PERN e implementé Cloudinary para el guardado de imágenes.",
-      stack: ["PERN", "Cloudinary", "E-commerce"],
+      stack: ["JavaScript", "NodeJs", "Express", "React", "E-commerce"],
     },
     {
       title: "Rumay - E-commerce",
@@ -64,7 +64,7 @@ const Projects = () => {
       git: "https://github.com/frangabriel13/PI-Pokemon",
       description:
         "Proyecto individual utilizando la Api de Pokémon. Utilicé JavaScript, NodeJs, Express, PostgreSQL, React y Redux, con CSS puro. Posee filtrados, ordenados, paginado, rutas para buscar o crear pokémon.",
-      stack: ["React", "Redux", "Node.js", "PostgreSQL"],
+      stack: ["React", "Redux", "NodeJs", "PostgreSQL", "Api externa"],
     },
     {
       title: "El Predio - Proyecto Real",
@@ -73,7 +73,7 @@ const Projects = () => {
       git: "https://github.com/EmmanuelML78/EL-PREDIO",
       description:
         "Trabajo en grupo hecho para un complejo deportivo de canchas de fútbol con sistema de reservas, registro de usuarios, autenticación local y de terceros, envío de mails, pasarela de pagos, etc. Tecnologías: JavaScript, NodeJs, Express, PostgreSQL y React.",
-      stack: ["React", "Node.js", "PostgreSQL", "Pagos"],
+      stack: ["React", "NodeJs", "Express", "PostgreSQL", "MercadoPago"],
     },
   ];
 
