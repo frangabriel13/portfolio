@@ -310,7 +310,7 @@
   .container {
     flex-direction: column;
     align-items: flex-start;
-    padding: 5.5rem var(--page-padding-mobile) 4rem;
+    padding: 9.5rem var(--page-padding-mobile) 4rem;
     gap: 3.2rem;
     min-height: 100svh;
   }
@@ -319,6 +319,16 @@
     flex: none;
     max-width: 100%;
     width: 100%;
+  }
+
+  .badge {
+    padding: 0.45rem 1rem 0.45rem 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 0.07em;
   }
 
   .title {
