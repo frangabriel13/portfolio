@@ -1,197 +1,129 @@
+import { useEffect, useRef } from "react";
 import s from "./Skills.module.css";
-import { AiOutlineHtml5 } from "react-icons/ai";
-import { FaCss3 } from "react-icons/fa";
+import { AiOutlineHtml5, AiOutlinePython } from "react-icons/ai";
+import { FaCss3, FaNodeJs, FaReact, FaBootstrap, FaDocker, FaAws, FaGitAlt } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { SiTypescript } from "react-icons/si";
-import { FaWordpressSimple } from "react-icons/fa";
-import { FaNodeJs } from "react-icons/fa";
-import { SiExpress } from "react-icons/si";
-import { SiSequelize } from "react-icons/si";
-import { SiPostgresql } from "react-icons/si";
-import { FaReact } from "react-icons/fa";
-import { SiRedux } from "react-icons/si";
-import { FaBootstrap } from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
-import { FaDocker } from "react-icons/fa";
-import { FaAws } from "react-icons/fa";
-import { SiNginx } from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa";
-import { SiExpo } from "react-icons/si";
+import { SiTypescript, SiExpress, SiSequelize, SiPostgresql, SiRedux, SiTailwindcss, SiNginx, SiExpo, SiNestjs, SiVite, SiMongodb, SiSocketdotio, SiJest, SiPostman, SiTrello, SiJira } from "react-icons/si";
 import { RiNextjsLine } from "react-icons/ri";
-import { SiNestjs } from "react-icons/si";
-import { SiVite } from "react-icons/si";
 import { TbBrandPrisma } from "react-icons/tb";
-import { GrMysql } from "react-icons/gr";
-import { SiMongodb } from "react-icons/si";
-import { AiOutlinePython } from "react-icons/ai";
-import { GrGraphQl } from "react-icons/gr";
-import { SiSocketdotio } from "react-icons/si";
-import { SiJest } from "react-icons/si";
-import { SiPostman } from "react-icons/si";
+import { GrMysql, GrGraphQl } from "react-icons/gr";
 import { DiDjango } from "react-icons/di";
-import { SiTrello } from "react-icons/si";
-import { SiJira } from "react-icons/si";
+
+const CATEGORIES = [
+  {
+    id: "frontend",
+    label: "Frontend",
+    items: [
+      { Icon: AiOutlineHtml5,    name: "HTML5"        },
+      { Icon: FaCss3,            name: "CSS3"         },
+      { Icon: IoLogoJavascript,  name: "JavaScript"   },
+      { Icon: SiTypescript,      name: "TypeScript"   },
+      { Icon: FaReact,           name: "React"        },
+      { Icon: SiRedux,           name: "Redux"        },
+      { Icon: FaReact,           name: "React Native" },
+      { Icon: SiExpo,            name: "Expo"         },
+      { Icon: RiNextjsLine,      name: "Next.js"      },
+      { Icon: FaBootstrap,       name: "Bootstrap"    },
+      { Icon: SiTailwindcss,     name: "Tailwind"     },
+      { Icon: SiVite,            name: "Vite"         },
+    ],
+  },
+  {
+    id: "backend",
+    label: "Backend & Base de Datos",
+    items: [
+      { Icon: FaNodeJs,          name: "Node.js"      },
+      { Icon: SiExpress,         name: "Express"      },
+      { Icon: SiNestjs,          name: "NestJS"       },
+      { Icon: DiDjango,          name: "Django"       },
+      { Icon: AiOutlinePython,   name: "Python"       },
+      { Icon: SiSequelize,       name: "Sequelize"    },
+      { Icon: TbBrandPrisma,     name: "Prisma"       },
+      { Icon: SiPostgresql,      name: "PostgreSQL"   },
+      { Icon: GrMysql,           name: "MySQL"        },
+      { Icon: SiMongodb,         name: "MongoDB"      },
+      { Icon: GrGraphQl,         name: "GraphQL"      },
+      { Icon: SiSocketdotio,     name: "Socket.io"    },
+    ],
+  },
+  {
+    id: "devops",
+    label: "DevOps & Herramientas",
+    items: [
+      { Icon: FaDocker,   name: "Docker"   },
+      { Icon: FaAws,      name: "AWS"      },
+      { Icon: SiNginx,    name: "Nginx"    },
+      { Icon: FaGitAlt,   name: "Git"      },
+      { Icon: SiJest,     name: "Jest"     },
+      { Icon: SiPostman,  name: "Postman"  },
+      { Icon: SiTrello,   name: "Trello"   },
+      { Icon: SiJira,     name: "Jira"     },
+    ],
+  },
+];
 
 const Skills = () => {
+  const innerRef = useRef(null);
+
+  useEffect(() => {
+    const el = innerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add(s.visible);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.06 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={s.container} id="skills">
-      <h2 className={s.title}>Skills</h2>
+    <section className={s.container} id="skills">
+      <div className={s.inner} ref={innerRef}>
 
-      {/* Frontend */}
-      <div className={s.categorySection}>
-        <h3 className={s.categoryTitle}>Frontend</h3>
-        <div className={s.skills}>
-          <div className={s.skill}>
-            <AiOutlineHtml5 className={s.icon} />
-            <p>HTML5</p>
-          </div>
-          <div className={s.skill}>
-            <FaCss3 className={s.icon} />
-            <p>CSS3</p>
-          </div>
-          <div className={s.skill}>
-            <IoLogoJavascript className={s.icon} />
-            <p>JavaScript</p>
-          </div>
-          <div className={s.skill}>
-            <SiTypescript className={s.icon} />
-            <p>TypeScript</p>
-          </div>
-          <div className={s.skill}>
-            <FaWordpressSimple className={s.icon} />
-            <p>WordPress</p>
-          </div>
-          <div className={s.skill}>
-            <FaReact className={s.icon} />
-            <p>React</p>
-          </div>
-          <div className={s.skill}>
-            <SiRedux className={s.icon} />
-            <p>Redux</p>
-          </div>
-          <div className={s.skill}>
-            <FaReact className={s.icon} />
-            <p>React Native</p>
-          </div>
-          <div className={s.skill}>
-            <SiExpo className={s.icon} />
-            <p>Expo</p>
-          </div>
-          <div className={s.skill}>
-            <RiNextjsLine className={s.icon} />
-            <p>Next.js</p>
-          </div>
-          <div className={s.skill}>
-            <FaBootstrap className={s.icon} />
-            <p>Bootstrap</p>
-          </div>
-          <div className={s.skill}>
-            <SiTailwindcss className={s.icon} />
-            <p>Tailwind</p>
-          </div>
-          <div className={s.skill}>
-            <SiVite className={s.icon} />
-            <p>Vite</p>
-          </div>
+        <div className={s.sectionHeader}>
+          <h2 className={s.title}>Skills</h2>
+          <span className={s.titleBar} aria-hidden="true" />
         </div>
-      </div>
 
-      {/* Backend & Base de Datos */}
-      <div className={s.categorySection}>
-        <h3 className={s.categoryTitle}>Backend & Base de Datos</h3>
-        <div className={s.skills}>
-          <div className={s.skill}>
-            <FaNodeJs className={s.icon} />
-            <p>Node.js</p>
-          </div>
-          <div className={s.skill}>
-            <SiExpress className={s.icon} />
-            <p>Express</p>
-          </div>
-          <div className={s.skill}>
-            <SiNestjs className={s.icon} />
-            <p>NestJS</p>
-          </div>
-          <div className={s.skill}>
-            <DiDjango className={s.icon} />
-            <p>Django</p>
-          </div>
-          <div className={s.skill}>
-            <SiSequelize className={s.icon} />
-            <p>Sequelize</p>
-          </div>
-          <div className={s.skill}>
-            <SiPostgresql className={s.icon} />
-            <p>PostgreSQL</p>
-          </div>
-          <div className={s.skill}>
-            <GrMysql className={s.icon} />
-            <p>MySQL</p>
-          </div>
-          <div className={s.skill}>
-            <SiMongodb className={s.icon} />
-            <p>MongoDB</p>
-          </div>
-          <div className={s.skill}>
-            <TbBrandPrisma className={s.icon} />
-            <p>Prisma</p>
-          </div>
-          <div className={s.skill}>
-            <GrGraphQl className={s.icon} />
-            <p>GraphQL</p>
-          </div>
-          <div className={s.skill}>
-            <SiSocketdotio className={s.icon} />
-            <p>Socket.io</p>
-          </div>
-          <div className={s.skill}>
-            <AiOutlinePython className={s.icon} />
-            <p>Python</p>
-          </div>
-        </div>
-      </div>
+        {CATEGORIES.map((cat, ci) => (
+          <div
+            key={cat.id}
+            className={s.category}
+            style={{ "--cat-delay": `${ci * 0.12}s` }}
+          >
+            <div className={s.categoryHeader}>
+              <h3 className={s.categoryTitle}>{cat.label}</h3>
+              <span className={s.categoryBadge} aria-label={`${cat.items.length} tecnologías`}>
+                {cat.items.length}
+              </span>
+            </div>
 
-      {/* DevOps & Herramientas */}
-      <div className={s.categorySection}>
-        <h3 className={s.categoryTitle}>DevOps & Herramientas</h3>
-        <div className={s.skills}>
-          <div className={s.skill}>
-            <FaDocker className={s.icon} />
-            <p>Docker</p>
+            <div className={s.grid} role="list">
+              {cat.items.map(({ Icon, name }, i) => (
+                <div
+                  key={name}
+                  className={s.skill}
+                  role="listitem"
+                  style={{ "--skill-delay": `${ci * 0.12 + i * 0.035}s` }}
+                >
+                  <Icon className={s.icon} aria-hidden="true" />
+                  <span className={s.skillName}>{name}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={s.skill}>
-            <FaAws className={s.icon} />
-            <p>AWS</p>
-          </div>
-          <div className={s.skill}>
-            <SiNginx className={s.icon} />
-            <p>Nginx</p>
-          </div>
-          <div className={s.skill}>
-            <FaGitAlt className={s.icon} />
-            <p>Git</p>
-          </div>
-          <div className={s.skill}>
-            <SiJest className={s.icon} />
-            <p>Jest</p>
-          </div>
-          <div className={s.skill}>
-            <SiPostman className={s.icon} />
-            <p>Postman</p>
-          </div>
-          <div className={s.skill}>
-            <SiTrello className={s.icon} />
-            <p>Trello</p>
-          </div>
-          <div className={s.skill}>
-            <SiJira className={s.icon} />
-            <p>Jira</p>
-          </div>
-        </div>
+        ))}
+
       </div>
-    </div>
+    </section>
   );
-}
-
+};
 
 export default Skills;
