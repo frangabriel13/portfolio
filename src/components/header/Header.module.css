@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.6rem 9%;
+  padding: 1.6rem var(--page-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,7 +101,7 @@
   display: none;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 5px;
   width: 40px;
   height: 40px;
@@ -169,16 +169,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10% 6rem;
+  padding: 0 var(--page-padding-mobile) 6rem;
 
-  /* Collapsed from the hamburger corner */
-  clip-path: circle(0% at calc(100% - 28px) 38px);
+  /* Collapsed from the hamburger corner — origin tracks the button position */
+  clip-path: circle(0% at calc(100% - 20px) 38px);
   transition: clip-path 0.65s cubic-bezier(0.76, 0, 0.24, 1);
   pointer-events: none;
 }
 
 .overlayOpen {
-  clip-path: circle(170% at calc(100% - 28px) 38px);
+  clip-path: circle(170% at calc(100% - 20px) 38px);
   pointer-events: all;
 }
 
@@ -339,6 +339,7 @@
    RESPONSIVE
 ─────────────────────────────────────────── */
 @media (max-width: 768px) {
+  .container  { padding: 1.6rem var(--page-padding-mobile); }
   .desktopNav { display: none; }
   .hamburger  { display: flex; }
 }

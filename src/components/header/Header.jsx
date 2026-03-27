@@ -31,7 +31,9 @@ function Header() {
 
   const handleNavClick = (sectionId) => {
     setMenuOpen(false);
-    setTimeout(() => scrollToSection(sectionId), 300);
+    // Wait one tick for React to remove overflow:hidden, then scroll.
+    // The overlay closes over 650ms so the section is already in position when it reveals.
+    setTimeout(() => scrollToSection(sectionId), 50);
   };
 
   return (
