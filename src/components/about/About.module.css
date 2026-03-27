@@ -1,159 +1,248 @@
+/* ───────────────────────────────────────────
+   CONTAINER
+─────────────────────────────────────────── */
 .container {
-  text-align: center;
-  padding: 5.5rem 9%;
-  align-items: center;
+  padding: 7rem var(--page-padding);
   background-color: var(--second-bg-color);
+}
+
+/* ───────────────────────────────────────────
+   INNER — animation wrapper
+─────────────────────────────────────────── */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ───────────────────────────────────────────
+   SECTION HEADER
+─────────────────────────────────────────── */
+.sectionHeader {
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; */
-  justify-content: center;
+  align-items: center;
+  margin-bottom: 6rem;
+  gap: 1.4rem;
 }
 
 .title {
-  font-size: 4.2rem;
-  margin-bottom: 5.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-color);
 }
 
-.title span {
+.accent {
   color: var(--main-color);
 }
 
-.about {
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-  align-items: center;
-  gap: 5rem;
-  max-width: 1400px;
-  width: 100%;
+/* Línea de acento bajo el título */
+.titleBar {
+  display: block;
+  width: 4.8rem;
+  height: 3px;
+  background: var(--main-color);
+  border-radius: 2px;
 }
 
-.leftSection {
-  flex: 0 0 30%;
+/* ───────────────────────────────────────────
+   LAYOUT
+─────────────────────────────────────────── */
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+/* ───────────────────────────────────────────
+   PROFILE CARD — columna izquierda
+─────────────────────────────────────────── */
+.profileCard {
+  flex: 0 0 26%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2.4rem;
+  padding: 3.6rem 2.4rem;
+  background: rgba(15, 20, 34, 0.55);
+  border: 1px solid rgba(36, 160, 204, 0.12);
+  border-radius: 16px;
+  position: sticky;
+  top: calc(var(--header-height) + 2.4rem);
+
+  /* Animación */
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition-delay: 0.05s;
+}
+
+/* Anillo exterior sutil alrededor de la foto */
+.photoRing {
+  position: relative;
+  width: 19rem;
+  height: 19rem;
+  flex-shrink: 0;
+}
+
+.photoRing::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(36, 160, 204, 0.25);
+  pointer-events: none;
 }
 
 .image {
-  width: 22rem;
-  height: 22rem;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  border: .3rem solid var(--main-color);
+  border: 2.5px solid var(--main-color);
   object-fit: cover;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 3rem var(--main-color);
-  border-color: var(--text-color);
+  transform: scale(1.04);
+  box-shadow: 0 0 2.8rem rgba(36, 160, 204, 0.35);
+}
+
+.profileMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .name {
-  font-size: 2.4rem;
+  font-size: 2.1rem;
   font-weight: 700;
-  margin: 0;
   color: var(--text-color);
-  letter-spacing: 0.05rem;
+  letter-spacing: -0.01em;
+  text-align: center;
 }
 
 .role {
-  font-size: 2rem;
+  font-size: 1.35rem;
+  font-weight: 500;
   color: var(--main-color);
-  font-weight: 600;
-  margin: 0;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 
-.rightSection {
+/* ───────────────────────────────────────────
+   BIO — columna derecha
+─────────────────────────────────────────── */
+.bio {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  gap: 2.6rem;
+  padding-top: 0.4rem;
 }
 
-.description {
-  font-size: 1.6rem;
-  line-height: 1.8;
+.paragraph {
+  font-size: 1.65rem;
+  line-height: 1.85;
   color: var(--text-color);
-  max-width: 800px;
-  text-align: justify;
-  opacity: 0.9;
+  text-align: left;
+  max-width: 68ch;
+
+  /* Estado inicial de animación */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+.paragraph:nth-child(1) { transition-delay: 0.15s; }
+.paragraph:nth-child(2) { transition-delay: 0.25s; }
+.paragraph:nth-child(3) { transition-delay: 0.35s; }
+
+/* ───────────────────────────────────────────
+   VISIBLE STATE — se activa con IntersectionObserver
+─────────────────────────────────────────── */
+.visible .profileCard,
+.visible .paragraph {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Override the "opacity: 0.85" at rest now that we use opacity for animation.
+   Once visible, the final opacity for paragraphs is 0.85 */
+.visible .paragraph {
+  opacity: 0.85;
+}
+
+/* ───────────────────────────────────────────
+   RESPONSIVE — tablet
+─────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .about {
-    gap: 3rem;
+  .layout {
+    gap: 3.5rem;
   }
-  
-  .leftSection {
-    flex: 0 0 35%;
+
+  .profileCard {
+    flex: 0 0 30%;
+    position: static; /* sin sticky en tablet */
   }
 }
 
+/* ───────────────────────────────────────────
+   RESPONSIVE — mobile
+─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .container {
-    padding: 5.5rem 5%;
+    padding: 6rem var(--page-padding-mobile);
+  }
+
+  .sectionHeader {
+    margin-bottom: 4.5rem;
   }
 
   .title {
-    font-size: 3.5rem;
-    margin-bottom: 4rem;
+    font-size: 3.4rem;
   }
 
-  .about {
+  .layout {
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.5rem;
   }
 
-  .leftSection {
-    width: 100%;
-    order: 1;
+  .profileCard {
     flex: none;
-  }
-
-  .image {
-    width: 18rem;
-    height: 18rem;
-  }
-
-  .rightSection {
     width: 100%;
-    order: 2;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
+    gap: 2.4rem;
+    padding: 2.4rem;
+    position: static;
+    text-align: left;
   }
 
-  .description {
-    text-align: justify;
-    font-size: 1.5rem;
+  .profileMeta {
+    align-items: flex-start;
   }
 
-  .name {
-    font-size: 2.2rem;
-  }
-
+  .name,
   .role {
-    font-size: 1.8rem;
+    text-align: left;
   }
-}
 
-.fadeIn {
-  opacity: 0;
-  animation: fade-in 1.5s ease-in-out forwards;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .photoRing {
+    width: 9rem;
+    height: 9rem;
+    flex-shrink: 0;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .bio {
+    gap: 2rem;
+  }
+
+  .paragraph {
+    font-size: 1.55rem;
+    max-width: 100%;
   }
 }
