@@ -3,7 +3,13 @@
 ─────────────────────────────────────────── */
 .container {
   padding: 7rem var(--page-padding);
-  background-color: var(--second-bg-color);
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color),
+    var(--second-bg-color) 7rem,
+    var(--second-bg-color) calc(100% - 7rem),
+    var(--bg-color)
+  );
 }
 
 /* ───────────────────────────────────────────

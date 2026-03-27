@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--second-bg-color);
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color),
+    var(--second-bg-color) 7rem,
+    var(--second-bg-color) calc(100% - 5rem),
+    var(--dark-color)
+  );
   padding: 5.5rem 9%;
 }
 
