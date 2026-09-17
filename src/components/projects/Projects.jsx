@@ -17,7 +17,7 @@ const Projects = () => {
       link: "https://fabricantedirecto.com/",
       git: "https://github.com/frangabriel13/fabricante-directo",
       description:
-        "Aplicación B2B que reune fabricantes y mayoristas. Me ocupé mayormente del backend diseñando una arquitectura de microservicios. Utilicé stack PERN junto a servicios de AWS como S3, EC2 y RDS.",
+        "Aplicación B2B que reune a fabricantes y mayoristas. Me ocupé mayormente del backend diseñando una arquitectura de microservicios. Utilicé stack PERN junto a servicios de AWS como S3, EC2 y RDS.",
       stack: ["NodeJs", "Microservicios", "AWS", "PostgreSQL", "React"],
       featured: true,
     },
