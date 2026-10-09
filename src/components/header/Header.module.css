@@ -1,12 +1,14 @@
 /* ───────────────────────────────────────────
    HEADER  —  container
 ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+
 .container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.6rem var(--page-padding);
+  padding: 2.8rem clamp(1.6rem, 5vw, 7.2rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,14 +25,41 @@
   border-bottom-color: rgba(36, 160, 204, 0.1);
 }
 
+/* Variante clara: header sobre el Home blanco */
+.light .logo,
+.light .desktopNav a {
+  color: #111111;
+}
+
+.light .desktopNav a:hover,
+.light .socials a:hover {
+  color: #6b6b6b;
+}
+
+.light .socials a {
+  color: #111111;
+}
+
+.light .logo::after,
+.light .desktopNav a::after,
+.light .hamburger span {
+  background: #111111;
+}
+
+.light.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom-color: #ececec;
+}
+
 /* ───────────────────────────────────────────
    LOGO
 ─────────────────────────────────────────── */
 .logo {
-  font-size: 2.4rem;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 2.6rem;
   color: var(--text-color);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
   position: relative;
   z-index: 1003;
   transition: color 0.3s ease;
@@ -58,16 +87,21 @@
    DESKTOP NAV
 ─────────────────────────────────────────── */
 .desktopNav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
+  gap: 0.8rem;
 }
 
 .desktopNav a {
-  font-size: 1.45rem;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 1.6rem;
   color: var(--text-color);
-  font-weight: 500;
-  margin-left: 3.2rem;
-  opacity: 0.65;
+  font-weight: 400;
+  padding: 1rem 1.4rem;
+  opacity: 1;
   position: relative;
   transition: opacity 0.3s ease, color 0.3s ease;
   letter-spacing: 0.01em;
@@ -81,8 +115,8 @@
 .desktopNav a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -4px;
+  left: 1.4rem;
+  bottom: 0.4rem;
   width: 0;
   height: 1.5px;
   background: var(--main-color);
@@ -91,7 +125,29 @@
 }
 
 .desktopNav a:hover::after {
-  width: 100%;
+  width: calc(100% - 2.8rem);
+}
+
+/* ───────────────────────────────────────────
+   REDES (desktop)
+─────────────────────────────────────────── */
+.socials {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.socials a {
+  width: 4.4rem;
+  height: 4.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: var(--main-color);
 }
 
 /* ───────────────────────────────────────────
@@ -339,8 +395,9 @@
    RESPONSIVE
 ─────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .container  { padding: 1.6rem var(--page-padding-mobile); }
+  .container  { padding: 1.6rem clamp(1.6rem, 5vw, 7.2rem); }
   .desktopNav { display: none; }
+  .socials    { display: none; }
   .hamburger  { display: flex; }
 }
 

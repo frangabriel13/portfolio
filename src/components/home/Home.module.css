@@ -1,120 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+
 /* ───────────────────────────────────────────
    CONTAINER
 ─────────────────────────────────────────── */
 .container {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4rem, 6vw, 9.6rem);
   min-height: 100vh;
-  padding: 5.5rem var(--page-padding) 2rem;
-  align-items: center;
-  gap: 4rem;
+  /* 13.2rem = alto del header fijo (10rem) + 3.2rem de aire, como en el diseño */
+  padding: 13.2rem clamp(1.6rem, 5vw, 7.2rem) 7.2rem;
+  background: #ffffff;
+  color: #111111;
+  overflow: hidden;
+}
+
+.container,
+.container * {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+/* ───────────────────────────────────────────
+   FOTO + PUNTOS
+─────────────────────────────────────────── */
+.photoCol {
   position: relative;
-}
-
-/* ───────────────────────────────────────────
-   LEFT SECTION
-─────────────────────────────────────────── */
-.leftSection {
-  flex: 0 0 54%;
-  max-width: 54%;
-}
-
-/* ───────────────────────────────────────────
-   BADGE / SUBTITLE
-─────────────────────────────────────────── */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.55rem 1.2rem 0.55rem 0.9rem;
-  background: rgba(36, 160, 204, 0.07);
-  border: 1px solid rgba(36, 160, 204, 0.18);
-  border-radius: 100px;
-  margin-bottom: 2.4rem;
+  flex: 0 1 38rem;
+  min-width: 26rem;
+  padding: 3.6rem 0;
 
   opacity: 0;
-  animation: fadeSlideUp 0.6s ease 0s both;
+  animation: fadeSlideUp 0.7s ease 0s both;
 }
 
-.badgeDot {
+.dots {
+  position: absolute;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  background-image: radial-gradient(#c4c4c4 1.2px, transparent 1.4px);
+  background-size: 14px 14px;
+  transform: skewX(-24deg);
+}
+
+.dotsTop {
+  top: 0;
+  left: -6.4rem;
+  width: 20rem;
+  height: 9rem;
+}
+
+.dotsBottom {
+  bottom: 0;
+  right: -11rem;
+  width: 22rem;
+  height: 10rem;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #e4e4e4;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--main-color);
-  flex-shrink: 0;
-  animation: dotPulse 2.2s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% { opacity: 1;   transform: scale(1);   }
-  50%       { opacity: 0.3; transform: scale(0.75); }
-}
-
-.subtitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--main-color);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  filter: grayscale(1) contrast(1.05);
 }
 
 /* ───────────────────────────────────────────
-   TITLE
+   TEXTO
 ─────────────────────────────────────────── */
+.textCol {
+  flex: 1 1 46rem;
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
 .title {
-  font-size: 6.4rem;
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: var(--text-color);
-  margin-bottom: 2.4rem;
+  font-size: clamp(4rem, 4.4vw, 6.2rem);
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.035em;
 
   opacity: 0;
   animation: fadeSlideUp 0.6s ease 0.12s both;
 }
 
-/* "Franco" en color acento */
-.titleAccent {
-  color: var(--main-color);
-  position: relative;
-  white-space: nowrap;
+/* Barra negra ajustada a la altura de las letras */
+.highlight {
+  color: #ffffff;
+  padding: 0 6px;
+  background: linear-gradient(#111111, #111111) 0 72% / 100% 0.96em no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
-/* Línea de acento bajo el nombre */
-.titleAccent::after {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--main-color);
-  border-radius: 2px;
-  opacity: 0.3;
-}
-
-/* ───────────────────────────────────────────
-   DESCRIPTION
-─────────────────────────────────────────── */
 .description {
-  font-size: 1.7rem;
-  line-height: 1.75;
-  color: var(--text-color);
-  opacity: 0; /* sobreescrito por la animación */
-  max-width: 46ch;
-  margin-bottom: 3.6rem;
+  max-width: 50rem;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #5c5c5c;
 
+  opacity: 0;
   animation: fadeSlideUp 0.6s ease 0.24s both;
 }
 
 /* ───────────────────────────────────────────
-   BUTTONS
+   BOTONES
 ─────────────────────────────────────────── */
 .btns {
   display: flex;
-  gap: 1.2rem;
   flex-wrap: wrap;
-  margin-bottom: 4rem;
+  gap: 1.4rem;
+  margin-top: 0.8rem;
 
   opacity: 0;
   animation: fadeSlideUp 0.6s ease 0.36s both;
@@ -122,172 +128,43 @@
 
 .btnPrimary,
 .btnSecondary {
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding: 1.15rem 2.4rem;
-  border-radius: 6px;
+  min-height: 5.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 3rem;
+  border-radius: 4px;
+  font-size: 1.6rem;
   cursor: pointer;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 .btnPrimary {
-  background: var(--main-color);
-  color: #fff;
-  border: 1.5px solid var(--main-color);
+  background: #111111;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid #111111;
 }
 
 .btnPrimary:hover {
-  background: var(--second-color);
-  border-color: var(--second-color);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(36, 160, 204, 0.32);
-}
-
-.btnPrimary:active {
-  transform: translateY(0);
-  box-shadow: none;
+  background: #333333;
 }
 
 .btnSecondary {
-  background: transparent;
-  color: var(--text-color);
-  border: 1.5px solid rgba(237, 237, 237, 0.22);
+  background: #ffffff;
+  color: #111111;
+  font-weight: 500;
+  border: 1px solid #bdbdbd;
 }
 
 .btnSecondary:hover {
-  border-color: rgba(237, 237, 237, 0.55);
-  background: rgba(237, 237, 237, 0.05);
-  transform: translateY(-2px);
+  background: #f2f2f2;
 }
 
-.btnSecondary:active {
-  transform: translateY(0);
-}
-
-/* ───────────────────────────────────────────
-   SOCIAL ICONS
-─────────────────────────────────────────── */
-.socialRow {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-
-  opacity: 0;
-  animation: fadeSlideUp 0.6s ease 0.48s both;
-}
-
-/* Línea divisoria */
-.socialLine {
-  display: block;
-  width: 2.4rem;
-  height: 1.5px;
-  background: rgba(237, 237, 237, 0.18);
-  flex-shrink: 0;
-}
-
-.socialIcons {
-  display: flex;
-  gap: 0.2rem;
-}
-
-.socialLink {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 3.8rem;
-  height: 3.8rem;
-  border-radius: 8px;
-  font-size: 2rem;
-  color: rgba(237, 237, 237, 0.45);
-  transition: color 0.25s ease, background 0.25s ease, transform 0.2s ease;
-}
-
-.socialLink:hover {
-  color: var(--main-color);
-  background: rgba(36, 160, 204, 0.08);
-  transform: translateY(-2px);
-}
-
-/* ───────────────────────────────────────────
-   RIGHT SECTION / IMAGE
-─────────────────────────────────────────── */
-.rightSection {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.imageWrapper {
-  position: relative;
-  display: inline-block;
-
-  opacity: 0;
-  animation: fadeSlideLeft 0.8s ease 0.2s both;
-}
-
-/* Halo de luz detrás de la imagen */
-.imageGlow {
-  position: absolute;
-  inset: -15%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(36, 160, 204, 0.11) 0%,
-    transparent 68%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-.image {
-  width: 100%;
-  max-width: 460px;
-  height: auto;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-  mask-image:
-    linear-gradient(to right,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image:
-    linear-gradient(to right,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-  mask-composite: intersect;
-  -webkit-mask-composite: source-in;
-}
-
-/* ───────────────────────────────────────────
-   SCROLL HINT
-─────────────────────────────────────────── */
-.scrollHint {
-  position: absolute;
-  bottom: 3.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  opacity: 0;
-  animation: fadeSlideUp 0.6s ease 0.9s both;
-}
-
-.scrollLine {
-  display: block;
-  width: 1.5px;
-  height: 38px;
-  background: linear-gradient(to bottom, transparent, var(--main-color));
-  border-radius: 2px;
-  animation: scrollDrop 2s ease-in-out infinite;
-}
-
-@keyframes scrollDrop {
-  0%   { opacity: 0;   transform: scaleY(0.3) translateY(-40%); }
-  40%  { opacity: 1;   transform: scaleY(1)   translateY(0);    }
-  100% { opacity: 0;   transform: scaleY(0.3) translateY(40%);  }
+.btnPrimary:focus-visible,
+.btnSecondary:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
 }
 
 /* ───────────────────────────────────────────
@@ -298,9 +175,14 @@
   to   { opacity: 1; transform: translateY(0);    }
 }
 
-@keyframes fadeSlideLeft {
-  from { opacity: 0; transform: translateX(22px); }
-  to   { opacity: 1; transform: translateX(0);    }
+@media (prefers-reduced-motion: reduce) {
+  .photoCol,
+  .title,
+  .description,
+  .btns {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 /* ───────────────────────────────────────────
@@ -308,49 +190,33 @@
 ─────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
   .container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 9.5rem var(--page-padding-mobile) 4rem;
-    gap: 3.2rem;
+    padding: 9.5rem clamp(1.6rem, 5vw, 7.2rem) 5.6rem;
     min-height: 100svh;
+    gap: 4.8rem;
   }
 
-  .leftSection {
-    flex: none;
-    max-width: 100%;
-    width: 100%;
+  .photoCol {
+    flex-basis: 100%;
+    max-width: 30rem;
   }
 
-  .badge {
-    padding: 0.45rem 1rem 0.45rem 0.75rem;
-    margin-bottom: 2rem;
+  .dotsTop {
+    left: -3.2rem;
+    width: 14rem;
+    height: 7rem;
   }
 
-  .subtitle {
-    font-size: 1.1rem;
-    letter-spacing: 0.07em;
+  .dotsBottom {
+    right: -4rem;
+    width: 16rem;
+    height: 8rem;
   }
 
-  .title {
-    font-size: 4.8rem;
-    letter-spacing: -0.025em;
+  .textCol {
+    flex-basis: 100%;
   }
 
   .description {
     font-size: 1.6rem;
-    max-width: 100%;
-  }
-
-  .rightSection {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .image {
-    max-width: 320px;
-  }
-
-  .scrollHint {
-    display: none;
   }
 }
