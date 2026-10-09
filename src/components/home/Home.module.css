@@ -22,47 +22,50 @@
   font-family: 'Hanken Grotesk', sans-serif;
 }
 
+/* Selección de texto con el mismo estilo que la barra del título */
+.container ::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
 /* ───────────────────────────────────────────
-   FOTO + PUNTOS
+   FOTO + BLOQUE DESPLAZADO
 ─────────────────────────────────────────── */
 .photoCol {
   position: relative;
-  flex: 0 1 38rem;
-  min-width: 26rem;
-  padding: 3.6rem 0;
-
-  opacity: 0;
-  animation: fadeSlideUp 0.7s ease 0s both;
+  flex: 0 1 44rem;
+  min-width: 28rem;
+  padding: 0 2.8rem 2.8rem 0;
 }
 
-.dots {
+/* Bloque gris corrido abajo a la derecha, como sombra dura */
+.photoBlock {
   position: absolute;
-  border-radius: 10px;
-  background-color: #f2f2f2;
-  background-image: radial-gradient(#c4c4c4 1.2px, transparent 1.4px);
-  background-size: 14px 14px;
-  transform: skewX(-24deg);
-}
-
-.dotsTop {
-  top: 0;
-  left: -6.4rem;
-  width: 20rem;
-  height: 9rem;
-}
-
-.dotsBottom {
+  top: 2.8rem;
+  left: 2.8rem;
+  right: 0;
   bottom: 0;
-  right: -11rem;
-  width: 22rem;
-  height: 10rem;
+  background: #e6e6e6;
 }
 
 .photo {
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: #e4e4e4;
+  background: #d9d9d9;
+}
+
+/* Etiqueta negra que sobresale del borde izquierdo */
+.photoTag {
+  position: absolute;
+  left: -1.6rem;
+  bottom: 5.6rem;
+  padding: 1rem 1.6rem;
+  background: #111111;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .photo img {
@@ -71,6 +74,14 @@
   object-fit: cover;
   display: block;
   filter: grayscale(1) contrast(1.05);
+  transition: filter 0.6s ease;
+}
+
+/* La foto toma color al pasar el cursor */
+@media (hover: hover) {
+  .photoCol:hover .photo img {
+    filter: grayscale(0) contrast(1);
+  }
 }
 
 /* ───────────────────────────────────────────
@@ -89,18 +100,54 @@
   line-height: 1.18;
   font-weight: 700;
   letter-spacing: -0.035em;
-
-  opacity: 0;
-  animation: fadeSlideUp 0.6s ease 0.12s both;
 }
 
 /* Barra negra ajustada a la altura de las letras */
 .highlight {
-  color: #ffffff;
+  position: relative;
+  display: inline-block;
   padding: 0 6px;
-  background: linear-gradient(#111111, #111111) 0 72% / 100% 0.96em no-repeat;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  background: linear-gradient(#111111, #111111) 0 72% / 0% 0.96em no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Al terminar de escribir, la barra se dibuja de izquierda a derecha */
+.highlight.marked {
+  background-size: 100% 0.96em;
+}
+
+.roleGhost {
+  visibility: hidden;
+}
+
+.roleTyped {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  right: 6px;
+  color: #111111;
+  transition: color 0.2s ease 0.12s;
+}
+
+.marked .roleTyped {
+  color: #ffffff;
+}
+
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.86em;
+  margin-left: 3px;
+  /* No ocupa lugar en la línea: así nunca baja a un renglón nuevo */
+  margin-right: -6px;
+  vertical-align: -0.08em;
+  background: #111111;
+  animation: caretBlink 0.9s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
 .description {
@@ -108,9 +155,6 @@
   font-size: 1.8rem;
   line-height: 1.6;
   color: #5c5c5c;
-
-  opacity: 0;
-  animation: fadeSlideUp 0.6s ease 0.24s both;
 }
 
 /* ───────────────────────────────────────────
@@ -121,9 +165,6 @@
   flex-wrap: wrap;
   gap: 1.4rem;
   margin-top: 0.8rem;
-
-  opacity: 0;
-  animation: fadeSlideUp 0.6s ease 0.36s both;
 }
 
 .btnPrimary,
@@ -161,28 +202,40 @@
   background: #f2f2f2;
 }
 
+/* Microanimación de los íconos: el botón no se mueve, solo la flecha */
+.btnPrimary svg,
+.btnSecondary svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.btnPrimary:hover svg {
+  transform: translateX(3px);
+}
+
+.btnSecondary:hover svg {
+  transform: translateY(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo img,
+  .btnPrimary svg,
+  .btnSecondary svg,
+  .highlight,
+  .roleTyped {
+    transition: none;
+  }
+
+  .btnPrimary:hover svg,
+  .btnSecondary:hover svg {
+    transform: none;
+  }
+}
+
 .btnPrimary:focus-visible,
 .btnSecondary:focus-visible {
   outline: 2px solid #111111;
   outline-offset: 3px;
-}
-
-/* ───────────────────────────────────────────
-   KEYFRAMES
-─────────────────────────────────────────── */
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(22px); }
-  to   { opacity: 1; transform: translateY(0);    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .photoCol,
-  .title,
-  .description,
-  .btns {
-    animation: none;
-    opacity: 1;
-  }
 }
 
 /* ───────────────────────────────────────────
@@ -197,19 +250,11 @@
 
   .photoCol {
     flex-basis: 100%;
-    max-width: 30rem;
+    max-width: 34rem;
   }
 
-  .dotsTop {
-    left: -3.2rem;
-    width: 14rem;
-    height: 7rem;
-  }
-
-  .dotsBottom {
-    right: -4rem;
-    width: 16rem;
-    height: 8rem;
+  .photoTag {
+    left: -0.8rem;
   }
 
   .textCol {

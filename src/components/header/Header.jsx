@@ -3,10 +3,9 @@ import s from "./Header.module.css";
 
 const NAV_ITEMS = [
   { id: "home",     label: "Inicio",    num: "01" },
-  { id: "about",    label: "Sobre mí",  num: "02" },
-  { id: "skills",   label: "Skills",    num: "03" },
-  { id: "projects", label: "Proyectos", num: "04" },
-  { id: "contact",  label: "Contacto",  num: "05" },
+  { id: "resumen",  label: "Resumen",   num: "02" },
+  { id: "projects", label: "Proyectos", num: "03" },
+  { id: "contact",  label: "Contacto",  num: "04" },
 ];
 
 function Header() {
@@ -17,10 +16,14 @@ function Header() {
   useEffect(() => {
     const onScroll = () => {
       setIsScrolled(window.pageYOffset > 0);
-      // El Home es blanco: mientras el header esté encima, usa la variante clara
-      const home = document.getElementById("home");
+      // Home y Resumen son blancos (y van seguidos): mientras el header esté
+      // encima de alguno de los dos, usa la variante clara
+      const lastLight = document.getElementById("resumen") || document.getElementById("home");
       const headerHeight = 64;
-      setOverHome(!home || window.pageYOffset < home.offsetHeight - headerHeight);
+      setOverHome(
+        !lastLight ||
+        window.pageYOffset < lastLight.offsetTop + lastLight.offsetHeight - headerHeight
+      );
     };
     onScroll();
     window.addEventListener("scroll", onScroll);
