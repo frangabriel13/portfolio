@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Home.module.css";
 import cv from "../../assets/fMansillaCV.pdf";
-import portada from "../../assets/escritorio-ia.png";
+import yo from "../../assets/yo.jpeg";
 
 const Home = () => {
   const scrollToContact = () => {
@@ -18,93 +18,36 @@ const Home = () => {
 
   return (
     <section className={s.container} id="home">
-      <div className={s.leftSection}>
+      {/* Retrato con manchas de puntos */}
+      <div className={s.photoCol}>
+        <span className={`${s.dots} ${s.dotsTop}`} aria-hidden="true" />
+        <span className={`${s.dots} ${s.dotsBottom}`} aria-hidden="true" />
+        <figure className={s.photo}>
+          <img src={yo} alt="Retrato de Franco Mansilla" />
+        </figure>
+      </div>
 
-        {/* Role badge — establece contexto antes del nombre */}
-        <div className={s.badge}>
-          <span className={s.badgeDot} aria-hidden="true" />
-          <h3 className={s.subtitle}>Full Stack Developer · Disponible</h3>
-        </div>
-
-        {/* Título principal */}
+      <div className={s.textCol}>
         <h1 className={s.title}>
-          Hola, soy <span className={s.titleAccent}>Franco</span>
+          Hola, soy Franco y soy{" "}
+          <span className={s.highlight}>Full Stack Developer.</span>
         </h1>
 
-        {/* Descripción */}
         <p className={s.description}>
-          Construyo productos digitales completos — desde la interfaz hasta el servidor — con atención al detalle y foco en la experiencia de usuario.
+          Vivo en Buenos Aires y construyo productos digitales completos — desde la interfaz hasta el servidor — con atención al detalle y foco en la experiencia de usuario.
         </p>
 
-        {/* CTAs */}
         <div className={s.btns}>
           <button className={s.btnPrimary} onClick={scrollToContact}>
             Contáctame
           </button>
           <button className={s.btnSecondary} onClick={handleDownloadCV}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 4v12M6 10l6 6 6-6M5 20h14" />
+            </svg>
             Descargar CV
           </button>
         </div>
-
-        {/* Social links */}
-        <div className={s.socialRow}>
-          <span className={s.socialLine} aria-hidden="true" />
-          <div className={s.socialIcons}>
-            <a
-              href="https://www.linkedin.com/in/frangabriel13/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className={s.socialLink}
-            >
-              <i className="bx bxl-linkedin" aria-hidden="true"></i>
-            </a>
-            <a
-              href="https://www.instagram.com/frangabriel.13/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className={s.socialLink}
-            >
-              <i className="bx bxl-instagram" aria-hidden="true"></i>
-            </a>
-            <a
-              href="https://twitter.com/frangabriel13_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter / X"
-              className={s.socialLink}
-            >
-              <i className="bx bxl-twitter" aria-hidden="true"></i>
-            </a>
-            <a
-              href="https://github.com/frangabriel13/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className={s.socialLink}
-            >
-              <i className="bx bxl-github" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Imagen */}
-      <div className={s.rightSection}>
-        <div className={s.imageWrapper}>
-          <div className={s.imageGlow} aria-hidden="true" />
-          <img
-            src={portada}
-            alt="Franco Mansilla — Full Stack Developer"
-            className={s.image}
-          />
-        </div>
-      </div>
-
-      {/* Indicador de scroll */}
-      <div className={s.scrollHint} aria-hidden="true">
-        <span className={s.scrollLine} />
       </div>
     </section>
   );
