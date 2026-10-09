@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+
+/* ───────────────────────────────────────────
+   CONTAINER
+─────────────────────────────────────────── */
+.container {
+  padding: 12rem clamp(1.6rem, 5vw, 7.2rem);
+  background: #ffffff;
+  color: #111111;
+  text-align: center;
+}
+
+.container,
+.container * {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.container ::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+.inner {
+  max-width: 76rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8.8rem;
+}
+
+/* ───────────────────────────────────────────
+   ENCABEZADO
+─────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  font-size: clamp(4.4rem, 5vw, 7.2rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  max-width: 56rem;
+  font-size: 1.8rem;
+  line-height: 1.65;
+  color: #5c5c5c;
+}
+
+/* ───────────────────────────────────────────
+   BLOQUES
+─────────────────────────────────────────── */
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.8rem;
+}
+
+.blockWide {
+  width: 100%;
+  gap: 3.2rem;
+}
+
+.blockTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Misma barra negra que el título del Home */
+.highlight {
+  color: #ffffff;
+  padding: 0 6px;
+  background: linear-gradient(#111111, #111111) 0 72% / 100% 0.96em no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.entry {
+  max-width: 52rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.entryTitle {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.entryPlace {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #5c5c5c;
+}
+
+.entryDates {
+  font-size: 1.4rem;
+  color: #767676;
+}
+
+/* ───────────────────────────────────────────
+   SKILLS
+─────────────────────────────────────────── */
+.skills {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 3.2rem;
+}
+
+.skillGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.skillLabel {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.skillList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 1.6rem;
+  color: #5c5c5c;
+}
+
+/* ───────────────────────────────────────────
+   CV
+─────────────────────────────────────────── */
+.cv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.cvText {
+  font-size: 1.6rem;
+  color: #5c5c5c;
+}
+
+.cvBtn {
+  min-height: 5.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 3rem;
+  border-radius: 4px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.cvBtn:hover {
+  background: #333333;
+}
+
+.cvBtn svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.cvBtn:hover svg {
+  transform: translateY(3px);
+}
+
+.cvBtn:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvBtn svg {
+    transition: none;
+  }
+
+  .cvBtn:hover svg {
+    transform: none;
+  }
+}
+
+/* ───────────────────────────────────────────
+   RESPONSIVE — MOBILE
+─────────────────────────────────────────── */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 8rem clamp(1.6rem, 5vw, 7.2rem);
+  }
+
+  .inner {
+    gap: 6.4rem;
+  }
+
+  .intro {
+    font-size: 1.6rem;
+  }
+
+  .blockTitle {
+    font-size: 2.4rem;
+  }
+}
