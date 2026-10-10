@@ -1,5 +1,5 @@
 import s from "./Resumen.module.css";
-import cv from "../../assets/fMansillaCV.pdf";
+import cv from "../../assets/francoMansillaCV.pdf";
 
 // Fechas vacías ("") no se muestran: completalas cuando las tengas
 const EDUCATION = [
@@ -12,6 +12,11 @@ const EDUCATION = [
 
 const EXPERIENCE = [
   {
+    title: "Cofundador",
+    place: "FullSync — soluciones IT. Análisis y diseño de sistemas, arquitectura y backend.",
+    dates: "2026 — Actualidad",
+  },
+  {
     title: "Full Stack Developer",
     place: "Fabricante Directo — único desarrollador de la plataforma B2B web y mobile (Android e iOS). Hoy, mantenimiento.",
     dates: "Noviembre 2023 — Actualidad",
@@ -19,24 +24,20 @@ const EXPERIENCE = [
   {
     title: "Full Stack Developer freelance",
     place: "Proyectos web para clientes nacionales e internacionales",
-    dates: "2023 — Actualidad",
+    dates: "2023 — 2026",
   },
 ];
 
+// Las del stack principal (PERN) se destacan en negrita
+const MAIN_STACK = ["PostgreSQL", "Express", "React", "Node.js"];
+
 const SKILLS = [
-  {
-    label: "Frontend",
-    items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Redux", "React Native", "Expo", "Next.js", "Bootstrap", "Tailwind", "Vite"],
-  },
-  {
-    label: "Backend y datos",
-    items: ["Node.js", "Express", "NestJS", "Django", "Python", "Sequelize", "Prisma", "PostgreSQL", "MySQL", "MongoDB", "GraphQL", "Socket.io"],
-  },
-  {
-    label: "DevOps y herramientas",
-    items: ["Docker", "AWS", "Nginx", "Git", "Jest", "Postman", "Trello", "Jira"],
-  },
+  { label: "Frontend", items: ["React", "TypeScript", "Next.js", "Redux", "Zustand", "React Native"] },
+  { label: "Backend", items: ["Node.js", "Express", "PostgreSQL", "NestJS", "Python", "MongoDB"] },
+  { label: "DevOps y herramientas", items: ["Docker", "AWS", "Nginx", "Postman", "Jest", "Claude Code"] },
 ];
+
+const OTHER_SKILLS = ["TanStack Query", "Tailwind", "Expo", "Django", "GraphQL", "Socket.io", "MySQL", "Prisma", "Sequelize"];
 
 const renderEntry = (entry) => (
   <div key={entry.title} className={s.entry}>
@@ -87,11 +88,18 @@ const Resumen = () => {
               <div key={group.label} className={s.skillGroup}>
                 <span className={s.skillLabel}>{group.label}</span>
                 <ul className={s.skillList}>
-                  {group.items.map((item) => <li key={item}>{item}</li>)}
+                  {group.items.map((item) => (
+                    <li key={item} className={MAIN_STACK.includes(item) ? s.skillMain : undefined}>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             ))}
           </div>
+          <p className={s.otherSkills}>
+            <strong>Otros:</strong> {OTHER_SKILLS.join(", ")}.
+          </p>
         </div>
 
         <div className={s.cv}>

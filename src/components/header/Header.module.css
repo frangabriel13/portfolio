@@ -172,7 +172,7 @@
 }
 
 .hamburger:hover {
-  background: rgba(36, 160, 204, 0.08);
+  background: rgba(17, 17, 17, 0.06);
 }
 
 .hamburger span {
@@ -200,7 +200,7 @@
 .hamburger.active span:nth-child(1) {
   width: 22px;
   transform: translateY(7px) rotate(45deg);
-  background: var(--main-color);
+  background: #111111;
 }
 .hamburger.active span:nth-child(2) {
   opacity: 0;
@@ -209,25 +209,34 @@
 .hamburger.active span:nth-child(3) {
   width: 22px;
   transform: translateY(-7px) rotate(-45deg);
-  background: var(--main-color);
+  background: #111111;
+}
+
+/* Header con el menú abierto: fondo blanco y línea inferior */
+.light.menuOpen {
+  background: #ffffff;
+  border-bottom-color: #ececec;
 }
 
 /* ───────────────────────────────────────────
-   OVERLAY — full-screen mobile menu
+   OVERLAY — menú móvil a pantalla completa
 ─────────────────────────────────────────── */
 .overlay {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100dvh;
-  background: var(--dark-color);
+  background: #ffffff;
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 var(--page-padding-mobile) 6rem;
+  justify-content: space-between;
+  padding: 12.4rem 2rem 3.2rem;
+  font-family: 'Hanken Grotesk', sans-serif;
+  color: #111111;
+  overflow-y: auto;
 
-  /* Collapsed from the hamburger corner — origin tracks the button position */
+  /* Se abre en círculo desde el botón hamburguesa */
   clip-path: circle(0% at calc(100% - 20px) 38px);
   transition: clip-path 0.65s cubic-bezier(0.76, 0, 0.24, 1);
   pointer-events: none;
@@ -238,27 +247,36 @@
   pointer-events: all;
 }
 
-/* Subtle grid texture */
-.overlayGrid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(36, 160, 204, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36, 160, 204, 0.035) 1px, transparent 1px);
-  background-size: 64px 64px;
-  pointer-events: none;
+.overlayBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* Glow accent (bottom-left) */
-.overlay::before {
-  content: "";
-  position: absolute;
-  bottom: -80px;
-  left: -80px;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(36, 160, 204, 0.07) 0%, transparent 65%);
-  pointer-events: none;
+.overlayLabel {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+/* Entrada escalonada de cada bloque */
+.overlayBody > .overlayLabel,
+.navItem,
+.overlayFooter {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.revealed {
+  animation: navSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--delay, 0.08s);
+}
+
+@keyframes navSlideIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
 
 /* ───────────────────────────────────────────
@@ -267,128 +285,105 @@
 .mobileNav {
   display: flex;
   flex-direction: column;
-  gap: 0;
   width: 100%;
+  border-bottom: 1px solid #ececec;
 }
 
 .navItem {
   display: flex;
   align-items: baseline;
-  gap: 1.4rem;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-  color: var(--text-color);
-  cursor: pointer;
-  position: relative;
-
-  /* Default: hidden */
-  opacity: 0;
-  transform: translateY(18px);
-  transition: color 0.25s ease, background 0.25s ease;
-}
-
-/* Staggered reveal */
-.navItemVisible {
-  animation: navSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--delay, 0s);
-}
-
-@keyframes navSlideIn {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0);    }
-}
-
-.navItem::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--main-color);
-  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.navItem:hover::after {
-  width: 100%;
+  gap: 1.6rem;
+  padding: 2rem 0;
+  border-top: 1px solid #ececec;
+  color: #111111;
 }
 
 .navNum {
-  font-size: 1.1rem;
-  color: var(--main-color);
+  min-width: 2.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  opacity: 0.55;
-  min-width: 2.8rem;
-  transition: opacity 0.25s ease;
+  color: #6b6b6b;
   font-feature-settings: "tnum";
+  transition: color 0.25s ease;
 }
 
 .navLabel {
-  font-size: 3.4rem;
+  font-size: 4.4rem;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
   line-height: 1;
-  flex: 1;
-  transition: color 0.25s ease, letter-spacing 0.3s ease;
+  padding: 0 6px;
+  margin-left: -6px;
+  /* Misma barra negra que el rol del Home */
+  background: linear-gradient(#111111, #111111) 0 0 / 0% 100% no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.65, 0, 0.35, 1), color 0.2s ease;
 }
 
-.navArrow {
-  font-size: 1.6rem;
-  opacity: 0;
-  color: var(--main-color);
-  transform: translateX(-8px);
-  transition: opacity 0.25s ease, transform 0.3s ease;
-  margin-left: auto;
+.navItem:hover .navNum,
+.navItemActive .navNum {
+  color: #111111;
 }
 
-.navItem:hover .navLabel  { color: var(--main-color); }
-.navItem:hover .navNum    { opacity: 1; }
-.navItem:hover .navArrow  { opacity: 1; transform: translateX(0); }
+.navItemActive .navLabel {
+  background-size: 100% 100%;
+  color: #ffffff;
+}
 
 /* ───────────────────────────────────────────
-   CTA BUTTON
+   FOOTER DEL MENÚ
 ─────────────────────────────────────────── */
-.cta {
+.overlayFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 2.4rem;
+}
+
+.mailBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mail {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #111111;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.6rem;
+  border-top: 1px solid #ececec;
+}
+
+.footerSocials {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: -1rem;
+}
+
+.footerSocials a {
+  width: 4.4rem;
+  height: 4.4rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  margin-top: 4rem;
-  padding: 1.4rem 2.8rem;
-  background: var(--main-color);
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  border-radius: 4px;
-  align-self: flex-start;
-
-  opacity: 0;
-  transform: translateY(16px);
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  justify-content: center;
+  color: #111111;
+  transition: color 0.25s ease;
 }
 
-.ctaVisible {
-  animation: navSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.46s both;
+.footerSocials a:hover {
+  color: #6b6b6b;
 }
 
-.cta svg {
-  transition: transform 0.3s ease;
-}
-
-.cta:hover {
-  background: var(--second-color);
-  box-shadow: 0 8px 28px rgba(36, 160, 204, 0.38);
-  transform: translateY(-2px);
-}
-
-.cta:hover svg {
-  transform: translateX(4px);
-}
-
-.cta:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(36, 160, 204, 0.25);
+.location {
+  font-size: 1.3rem;
+  color: #6b6b6b;
 }
 
 /* ───────────────────────────────────────────

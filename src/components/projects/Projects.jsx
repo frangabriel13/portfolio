@@ -1,103 +1,217 @@
-import React from "react";
+import { useState } from "react";
 import s from "./Projects.module.css";
-import ProjectCard from "./ProjectCard";
-import rumay from "../../assets/rumay.png";
-import poke from "../../assets/pokemon.png";
-import predio from "../../assets/elpredio.png";
-import fabricante from "../../assets/fd1.png";
-import africa from "../../assets/africa.png";
-import tirria from "../../assets/tirria.png";
-import eternal from "../../assets/er1.png";
+import fabricante from "../../assets/fabricante.png";
+import fullsync from "../../assets/full.png";
+import eternal from "../../assets/eternal.png";
+import fitapp from "../../assets/fitapp.png";
+import agendapp from "../../assets/agendapp.png";
+
+const FEATURED = {
+  title: "Fabricante Directo",
+  image: fabricante,
+  description:
+    "Aplicación B2B que reúne fabricantes y mayoristas, en web y en apps para Android e iOS. Arquitectura de microservicios con stack PERN y servicios de AWS (S3, EC2 y RDS).",
+  stack: ["Node.js", "Microservicios", "AWS", "PostgreSQL", "React", "React Native"],
+  link: "https://fabricantedirecto.com/",
+  git: "https://github.com/frangabriel13/fabricante-directo",
+  // La captura es del rediseño, que todavía no está publicado
+  redesign: true,
+};
+
+// stack vacío ("") no se muestra.
+// Sin link (sin deploy, o con un rediseño sin publicar) la tarjeta muestra
+// un solo botón "Ver código" que lleva al repo de GitHub.
+const PROJECTS = [
+  {
+    title: "FullSync",
+    category: "Empresa propia",
+    image: fullsync,
+    description:
+      "Empresa de soluciones IT que fundé con mi hermano. Me encargo del análisis, el diseño y la arquitectura de los sistemas y del backend.",
+    stack: "",
+    link: "https://fullsync.site/",
+    git: "https://github.com/frangabriel13/fullSync/",
+  },
+  {
+    title: "AgendApp",
+    category: "Sistemas",
+    image: agendapp,
+    description:
+      "Sistema de gestión de turnos, empleados, infraestructura y sedes, con disponibilidad del equipo y facturación.",
+    stack: "Next.js · NestJS · PostgreSQL",
+    link: "",
+    git: "https://github.com/frangabriel13/agendapp-front/",
+  },
+  {
+    title: "FitApp",
+    category: "Sistemas",
+    image: fitapp,
+    description:
+      "Aplicación de gestión de rutinas de gimnasio: planificación por ciclos, días de entrenamiento y seguimiento de cada ejercicio.",
+    stack: "Next.js · NestJS · PostgreSQL",
+    link: "",
+    git: "https://github.com/frangabriel13/fitness-app",
+  },
+  {
+    title: "Eternal Restful",
+    category: "Sistemas",
+    image: eternal,
+    description:
+      "Sitio bilingüe para una funeraria de Estados Unidos, con dashboard de gestión de clientes para administradores y empleados.",
+    stack: "React · Node.js · PostgreSQL",
+    link: "",
+    git: "https://github.com/frangabriel13/restful",
+  },
+];
+
+const CATEGORIES = ["Todos", "Empresa propia", "Sistemas", "E-commerce", "Académico"];
+const PAGE_SIZE = 6;
+const GITHUB_URL = "https://github.com/frangabriel13/";
+
+const externalIcon = (size = 14) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M7 17L17 7M9 7h8v8" />
+  </svg>
+);
 
 const Projects = () => {
-  const projectsData = [
-    {
-      title: "Fabricante Directo",
-      image: fabricante,
-      link: "https://fabricantedirecto.com/",
-      git: "https://github.com/frangabriel13/fabricante-directo",
-      description:
-        "Aplicación B2B que reune fabricantes y mayoristas. Me ocupé mayormente del backend diseñando una arquitectura de microservicios. Utilicé stack PERN junto a servicios de AWS como S3, EC2 y RDS.",
-      stack: ["NodeJs", "Microservicios", "AWS", "PostgreSQL", "React"],
-      featured: true,
-    },
-    {
-      title: "Eternal Restful",
-      image: eternal,
-      link: "https://www.eternalrestfulfuneralservices.com/",
-      git: "https://github.com/frangabriel13/restful",
-      description:
-        "Sitio web de una funeraria de Estados Unidos (en idioma inglés y español). Página informativa de la empresa, con detalles sobre sus servicios y contacto. Además, cuenta con un dashboard para la gestión de clientes manejado por un administrador y cuentas de empleados.",
-      stack: ["React", "NodeJs", "PostgreSQL", "JavaScript", "multilenguaje"],
-    },
-    {
-      title: "Africa Mía",
-      image: africa,
-      link: "https://africamia-jeans.online/",
-      git: "https://github.com/frangabriel13/africaMia",
-      description:
-        "E-commerce autogestionada para una tienda de jeans de dama. Usé stack PERN e implementé AWS S3 para el guardado de imágenes.",
-      stack: ["JavaScript", "NodeJs", "Express", "React", "E-commerce"],
-    },
-    {
-      title: "Tirria",
-      image: tirria,
-      link: "https://tirriasolflores.com/",
-      git: "https://github.com/frangabriel13/tirria-sol",
-      description:
-        "E-commerce autogestionada para una tienda de indumentaria femenina. Usé stack PERN e implementé Cloudinary para el guardado de imágenes.",
-      stack: ["JavaScript", "NodeJs", "Express", "React", "E-commerce"],
-    },
-    {
-      title: "Rumay - E-commerce",
-      image: rumay,
-      link: "https://github.com/frangabriel13",
-      git: "https://github.com/frangabriel13",
-      description:
-        "E-commerce diseñada en WordPress con Divi, WooCommerce y BodyCommerce. Tienda online realizada para una tienda mayorista de indumentaria femenina.",
-      stack: ["WordPress", "WooCommerce", "Divi"],
-    },
-    {
-      title: "Pokémon - Proyecto Académico",
-      image: poke,
-      link: "https://pi-pokemon-alpha-seven.vercel.app/",
-      git: "https://github.com/frangabriel13/PI-Pokemon",
-      description:
-        "Proyecto individual utilizando la Api de Pokémon. Utilicé JavaScript, NodeJs, Express, PostgreSQL, React y Redux, con CSS puro. Posee filtrados, ordenados, paginado, rutas para buscar o crear pokémon.",
-      stack: ["React", "Redux", "NodeJs", "PostgreSQL", "Api externa"],
-    },
-    {
-      title: "El Predio - Proyecto Real",
-      image: predio,
-      link: "https://el-predio.vercel.app/",
-      git: "https://github.com/EmmanuelML78/EL-PREDIO",
-      description:
-        "Trabajo en grupo hecho para un complejo deportivo de canchas de fútbol con sistema de reservas, registro de usuarios, autenticación local y de terceros, envío de mails, pasarela de pagos, etc. Tecnologías: JavaScript, NodeJs, Express, PostgreSQL y React.",
-      stack: ["React", "NodeJs", "Express", "PostgreSQL", "MercadoPago"],
-    },
-  ];
+  const [filter, setFilter] = useState("Todos");
+  const [showAll, setShowAll] = useState(false);
 
-  const featured = projectsData.filter((p) => p.featured);
-  const rest = projectsData.filter((p) => !p.featured);
+  const filtered = PROJECTS.filter((p) => filter === "Todos" || p.category === filter);
+  const shown = showAll ? filtered : filtered.slice(0, PAGE_SIZE);
+  const hidden = filtered.length - PAGE_SIZE;
+
+  const countFor = (cat) =>
+    cat === "Todos" ? PROJECTS.length : PROJECTS.filter((p) => p.category === cat).length;
+
+  // Los filtros aparecen solo cuando hay más proyectos que los que entran en
+  // la grilla y al menos dos categorías con proyectos
+  const categories = CATEGORIES.filter((cat) => countFor(cat) > 0);
+  const showFilters = PROJECTS.length > PAGE_SIZE && categories.length > 2;
+
+  const pickFilter = (cat) => {
+    setFilter(cat);
+    setShowAll(false);
+  };
 
   return (
-    <div className={s.container} id="projects">
-      <h2 className={s.title}>
-        My <span>Projects</span>
-      </h2>
+    <section className={s.container} id="projects">
+      <div className={s.inner}>
+        <header className={s.header}>
+          <h2 className={s.title}>Proyectos</h2>
+          <p className={s.intro}>
+            Sistemas web y mobile: desde el diseño hasta el servidor.
+          </p>
+        </header>
 
-      <div className={s.featured}>
-        {featured.map((project, i) => (
-          <ProjectCard key={i} {...project} />
-        ))}
-      </div>
+        {/* Proyecto destacado */}
+        <article className={s.featured}>
+          <div className={s.featuredMedia}>
+            <span className={s.featuredBlock} aria-hidden="true" />
+            <div className={s.featuredFrame}>
+              <img src={FEATURED.image} alt={`Captura de ${FEATURED.title}`} />
+            </div>
+            <span className={s.featuredTag}>
+              {FEATURED.redesign ? "Rediseño en desarrollo" : "Proyecto destacado"}
+            </span>
+          </div>
 
-      <div className={s.grid}>
-        {rest.map((project, i) => (
-          <ProjectCard key={i} {...project} />
-        ))}
+          <div className={s.featuredBody}>
+            <h3 className={s.featuredTitle}>
+              <span className={s.highlight}>{FEATURED.title}</span>
+            </h3>
+            <p className={s.featuredText}>{FEATURED.description}</p>
+            <ul className={s.tags}>
+              {FEATURED.stack.map((t) => <li key={t}>{t}</li>)}
+            </ul>
+            <div className={s.btns}>
+              <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className={s.btnPrimary}>
+                Ver sitio {externalIcon()}
+              </a>
+              <a href={FEATURED.git} target="_blank" rel="noopener noreferrer" className={s.btnSecondary}>
+                GitHub
+              </a>
+            </div>
+            {FEATURED.redesign && (
+              <p className={s.featuredNote}>El sitio publicado muestra la versión actual.</p>
+            )}
+          </div>
+        </article>
+
+        {/* Filtros + grilla */}
+        <div className={s.listing}>
+          {showFilters && (
+            <div className={s.filters} role="group" aria-label="Filtrar proyectos">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  className={`${s.pill} ${filter === cat ? s.pillActive : ""}`}
+                  aria-pressed={filter === cat}
+                  onClick={() => pickFilter(cat)}
+                >
+                  {cat} ({countFor(cat)})
+                </button>
+              ))}
+            </div>
+          )}
+
+          <div className={s.grid}>
+            {shown.map((p) => (
+              <article key={p.title} className={s.card}>
+                <div className={s.cardImage}>
+                  <img src={p.image} alt={`Captura de ${p.title}`} loading="lazy" />
+                </div>
+                <span className={s.cardCategory}>{p.category}</span>
+                <h3 className={s.cardTitle}>{p.title}</h3>
+                <p className={s.cardText}>{p.description}</p>
+                {p.stack && <span className={s.cardStack}>{p.stack}</span>}
+                <div className={s.cardLinks}>
+                  {p.link ? (
+                    <>
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className={s.cardLink}>
+                        Ver sitio {externalIcon(13)}
+                      </a>
+                      {p.git && (
+                        <a href={p.git} target="_blank" rel="noopener noreferrer" className={s.cardGit}>
+                          GitHub
+                        </a>
+                      )}
+                    </>
+                  ) : (
+                    p.git && (
+                      <a href={p.git} target="_blank" rel="noopener noreferrer" className={s.cardLink}>
+                        Ver código {externalIcon(13)}
+                      </a>
+                    )
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className={s.moreRow}>
+            {hidden > 0 && (
+              <button
+                type="button"
+                className={s.moreBtn}
+                aria-expanded={showAll}
+                onClick={() => setShowAll((v) => !v)}
+              >
+                {showAll ? "Ver menos" : `Ver más proyectos (${hidden})`}
+              </button>
+            )}
+            {/* Cuando ya se ve todo, invita a seguir en GitHub */}
+            {(hidden <= 0 || showAll) && (
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className={s.moreBtn}>
+                Ver más proyectos en GitHub {externalIcon()}
+              </a>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

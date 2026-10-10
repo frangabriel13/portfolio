@@ -109,6 +109,18 @@
 /* ───────────────────────────────────────────
    SKILLS
 ─────────────────────────────────────────── */
+.otherSkills {
+  max-width: 60rem;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #767676;
+}
+
+.otherSkills strong {
+  color: #111111;
+  font-weight: 700;
+}
+
 .skills {
   width: 100%;
   display: grid;
@@ -136,6 +148,11 @@
   gap: 0.6rem;
   font-size: 1.6rem;
   color: #5c5c5c;
+}
+
+.skillMain {
+  color: #111111;
+  font-weight: 700;
 }
 
 /* ───────────────────────────────────────────

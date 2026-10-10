@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import s from "./Home.module.css";
-import cv from "../../assets/fMansillaCV.pdf";
+import cv from "../../assets/francoMansillaCV.pdf";
 import yo from "../../assets/yo.jpeg";
 
-const ROLE = "Full Stack Developer.";
+const ROLE = "Full Stack Developer";
+const TEXT = `${ROLE}.`; // el punto se escribe pero queda fuera de la barra
 const TYPE_SPEED = 48;   // ms por letra
 const TYPE_DELAY = 400;  // espera antes de empezar a escribir
 const MARK_DELAY = 250;  // pausa entre el final del texto y la barra
@@ -15,19 +16,54 @@ const Home = () => {
   // Efecto máquina de escribir: escribe el rol y al terminar dibuja la barra
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setTyped(ROLE.length);
+      setTyped(TEXT.length);
       setMarked(true);
       return;
     }
 
-    const timers = [];
-    for (let i = 1; i <= ROLE.length; i++) {
-      timers.push(setTimeout(() => setTyped(i), TYPE_DELAY + i * TYPE_SPEED));
+    // Cada letra se agenda recién cuando se escribió la anterior: si el hilo
+    // principal se traba (carga de imágenes/fuentes) no se escriben varias de golpe
+    let timer;
+    let cancelled = false;
+    const cleanups = [];
+    const step = (i) => {
+      if (cancelled) return;
+      if (i > TEXT.length) {
+        timer = setTimeout(() => setMarked(true), MARK_DELAY);
+        return;
+      }
+      setTyped(i);
+      timer = setTimeout(() => step(i + 1), TYPE_SPEED);
+    };
+    const start = () => {
+      if (cancelled) return;
+      timer = setTimeout(() => step(1), TYPE_DELAY);
+    };
+
+    // Empieza cuando la página terminó de cargar y la pestaña está visible
+    const waitVisible = () => {
+      if (document.visibilityState === "visible") return start();
+      const onVisible = () => {
+        if (document.visibilityState !== "visible") return;
+        document.removeEventListener("visibilitychange", onVisible);
+        start();
+      };
+      document.addEventListener("visibilitychange", onVisible);
+      cleanups.push(() => document.removeEventListener("visibilitychange", onVisible));
+    };
+
+    if (document.readyState === "complete") {
+      waitVisible();
+    } else {
+      window.addEventListener("load", waitVisible, { once: true });
+      cleanups.push(() => window.removeEventListener("load", waitVisible));
     }
-    timers.push(
-      setTimeout(() => setMarked(true), TYPE_DELAY + ROLE.length * TYPE_SPEED + MARK_DELAY)
-    );
-    return () => timers.forEach(clearTimeout);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+      cleanups.forEach((fn) => fn());
+    };
   }, []);
 
   const scrollToContact = () => {
@@ -54,7 +90,7 @@ const Home = () => {
       </div>
 
       <div className={s.textCol}>
-        <h1 className={s.title} aria-label={`Hola, soy Franco. ${ROLE}`}>
+        <h1 className={s.title} aria-label={`Hola, soy Franco. ${TEXT}`}>
           Hola, soy Franco
           <br />
           <span
@@ -65,8 +101,12 @@ const Home = () => {
             <span className={s.roleGhost}>{ROLE}</span>
             <span className={s.roleTyped}>
               {ROLE.slice(0, typed)}
-              {!marked && <span className={s.caret} />}
+              {!marked && typed <= ROLE.length && <span className={s.caret} />}
             </span>
+          </span>
+          <span className={s.roleDot} aria-hidden="true">
+            <span className={typed > ROLE.length ? "" : s.roleGhost}>.</span>
+            {!marked && typed > ROLE.length && <span className={s.caret} />}
           </span>
         </h1>
 

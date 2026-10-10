@@ -133,6 +133,11 @@
   color: #ffffff;
 }
 
+/* El punto final va fuera de la barra */
+.roleDot {
+  position: relative;
+}
+
 .caret {
   display: inline-block;
   width: 3px;

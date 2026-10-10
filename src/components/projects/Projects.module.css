@@ -1,67 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+
+/* ───────────────────────────────────────────
+   CONTAINER
+─────────────────────────────────────────── */
 .container {
-  padding: 5.5rem 9%;
+  padding: 12rem clamp(1.6rem, 5vw, 7.2rem);
+  background: #ffffff;
+  color: #111111;
+}
+
+.container,
+.container * {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.container ::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+.inner {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
+}
+
+/* ───────────────────────────────────────────
+   ENCABEZADO
+─────────────────────────────────────────── */
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.title {
-  font-size: 4.2rem;
-  font-weight: 700;
-  margin-bottom: 5.5rem;
+  gap: 2rem;
   text-align: center;
 }
 
-.title span {
-  color: var(--main-color);
+.title {
+  font-size: clamp(4.4rem, 5vw, 7.2rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.045em;
 }
 
+.intro {
+  max-width: 56rem;
+  font-size: 1.8rem;
+  line-height: 1.65;
+  color: #5c5c5c;
+}
+
+/* ───────────────────────────────────────────
+   DESTACADO
+─────────────────────────────────────────── */
 .featured {
-  width: 100%;
-  max-width: 130rem;
-  margin-bottom: 3.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(3.2rem, 5vw, 7.2rem);
 }
 
+.featuredMedia {
+  position: relative;
+  flex: 1 1 52rem;
+  min-width: 0;
+  padding: 0 2.4rem 2.4rem 0;
+}
+
+.featuredBlock {
+  position: absolute;
+  top: 2.4rem;
+  left: 2.4rem;
+  right: 0;
+  bottom: 0;
+  background: #e6e6e6;
+}
+
+.featuredFrame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid #111111;
+  background: #f2f2f2;
+}
+
+.featuredFrame img,
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.featuredTag {
+  position: absolute;
+  left: -1.2rem;
+  top: 2.4rem;
+  padding: 0.8rem 1.4rem;
+  background: #111111;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.featuredBody {
+  flex: 1 1 38rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.featuredTitle {
+  font-size: clamp(3.2rem, 3.2vw, 4.4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+/* Misma barra negra que el Home */
+.highlight {
+  color: #ffffff;
+  padding: 0 6px;
+  background: linear-gradient(#111111, #111111) 0 72% / 100% 0.96em no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.featuredText {
+  font-size: 1.7rem;
+  line-height: 1.65;
+  color: #5c5c5c;
+}
+
+.featuredNote {
+  font-size: 1.4rem;
+  color: #767676;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tags li {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #bdbdbd;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* ───────────────────────────────────────────
+   BOTONES
+─────────────────────────────────────────── */
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 0.4rem;
+}
+
+.btnPrimary,
+.btnSecondary {
+  min-height: 4.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2.4rem;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  transition: background 0.25s ease;
+}
+
+.btnPrimary {
+  background: #111111;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btnPrimary:hover {
+  background: #333333;
+}
+
+.btnSecondary {
+  border: 1px solid #bdbdbd;
+  background: #ffffff;
+  color: #111111;
+  font-weight: 500;
+}
+
+.btnSecondary:hover {
+  background: #f2f2f2;
+}
+
+.btnPrimary svg,
+.cardLink svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.btnPrimary:hover svg,
+.cardLink:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* ───────────────────────────────────────────
+   FILTROS
+─────────────────────────────────────────── */
+.listing {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding-top: 2.4rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.pill {
+  min-height: 4.4rem;
+  padding: 0 1.8rem;
+  border-radius: 999px;
+  border: 1px solid #bdbdbd;
+  background: #ffffff;
+  color: #111111;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.pill:hover {
+  border-color: #111111;
+}
+
+.pillActive {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+/* ───────────────────────────────────────────
+   GRILLA
+─────────────────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.4rem;
-  width: 100%;
-  max-width: 130rem;
+  grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+  gap: 4rem 2.8rem;
 }
 
-/* Staggered fade-up for grid cards */
-.grid > *:nth-child(1) { animation-delay: 0.05s; }
-.grid > *:nth-child(2) { animation-delay: 0.10s; }
-.grid > *:nth-child(3) { animation-delay: 0.15s; }
-.grid > *:nth-child(4) { animation-delay: 0.20s; }
-.grid > *:nth-child(5) { animation-delay: 0.25s; }
-.grid > *:nth-child(6) { animation-delay: 0.30s; }
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
 
-@media (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+.cardImage {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  background: #f2f2f2;
+}
+
+.cardCategory {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6b6b6b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cardTitle {
+  margin-top: -0.6rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cardText {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #5c5c5c;
+}
+
+.cardStack {
+  font-size: 1.3rem;
+  color: #767676;
+}
+
+.cardLinks {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.2rem;
+}
+
+.cardLink,
+.cardGit {
+  min-height: 4.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+}
+
+.cardLink {
+  color: #111111;
+  font-weight: 600;
+}
+
+.cardGit {
+  color: #5c5c5c;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.cardGit:hover,
+.cardLink:hover {
+  color: #6b6b6b;
+}
+
+.moreRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4.8rem;
+  padding: 0 2.8rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.moreBtn svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.moreBtn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.moreBtn:hover {
+  background: #f2f2f2;
+  border-color: #111111;
+}
+
+.moreBtn:focus-visible,
+.pill:focus-visible,
+.btnPrimary:focus-visible,
+.btnSecondary:focus-visible,
+.cardLink:focus-visible,
+.cardGit:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btnPrimary svg,
+  .cardLink svg,
+  .moreBtn svg {
+    transition: none;
   }
 }
 
-@media (max-width: 991px) {
+/* ───────────────────────────────────────────
+   RESPONSIVE — MOBILE
+─────────────────────────────────────────── */
+@media screen and (max-width: 768px) {
   .container {
-    padding: 4rem 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 3rem 4%;
+    padding: 8rem clamp(1.6rem, 5vw, 7.2rem);
   }
 
-  .title {
-    font-size: 3.5rem;
-    margin-bottom: 4rem;
+  .intro {
+    font-size: 1.6rem;
+  }
+
+  .featuredTag {
+    left: -0.8rem;
   }
 
   .grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

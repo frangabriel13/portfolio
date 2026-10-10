@@ -1,7 +1,13 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import s from "./Contact.module.css";
 import emailjs from "@emailjs/browser";
-import { FaWhatsapp } from "react-icons/fa";
+
+const SOCIALS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/frangabriel13/" },
+  { label: "GitHub", href: "https://github.com/frangabriel13/" },
+  { label: "Instagram", href: "https://www.instagram.com/frangabriel.13/" },
+  { label: "X", href: "https://twitter.com/frangabriel13_/" },
+];
 
 const Contact = () => {
   const form = useRef();
@@ -41,157 +47,141 @@ const Contact = () => {
   };
 
   return (
-    <div className={s.container} id="contact">
-      <h2 className={s.title}>
-        Contact <span>Me</span>
-      </h2>
+    <section className={s.container} id="contact">
+      <div className={s.inner}>
+        <h2 className={s.title}>Contacto</h2>
 
-      <div className={s.wrapper}>
-        {/* ── Left panel: contact info ── */}
-        <div className={s.contact}>
-          <div className={s.info}>
-            <h4>¿Hablamos?</h4>
-            <p>
-              Escribime por el formulario o elegí el canal que prefieras.
-            </p>
+        <div className={s.card}>
+          {/* ── Panel negro: canales de contacto ── */}
+          <aside className={s.panel}>
+            <div className={s.panelTop}>
+              <h3 className={s.panelTitle}>
+                <span className={s.highlight}>¿Hablamos?</span>
+              </h3>
+              <p className={s.panelText}>
+                Escribime por el formulario o elegí el canal que prefieras.
+              </p>
 
-            <div className={s.contactItems}>
-              <a href="tel:+541158742482" className={s.iconItem}>
-                <span className={s.iconCircle}>
-                  <i className="bx bx-phone"></i>
-                </span>
-                <span>+54 11 5874 2482</span>
-              </a>
+              <div className={s.channels}>
+                <a href="mailto:mansilla.franco.1@gmail.com" className={s.channel}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="1" />
+                    <path d="M3 7l9 6 9-6" />
+                  </svg>
+                  mansilla.franco.1@gmail.com
+                </a>
+                <a href="tel:+541158742482" className={s.channel}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />
+                  </svg>
+                  +54 11 5874 2482
+                </a>
+              </div>
 
               <a
-                href="mailto:mansilla.franco.1@gmail.com"
-                className={s.iconItem}
+                href="https://api.whatsapp.com/send?phone=541158742482"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={s.whatsapp}
               >
-                <span className={s.iconCircle}>
-                  <i className="bx bx-envelope"></i>
-                </span>
-                <span>mansilla.franco.1@gmail.com</span>
+                Escribime por WhatsApp
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M7 17L17 7M9 7h8v8" />
+                </svg>
               </a>
             </div>
 
-            <div className={s.whatsappDivider}>
-              <span>o escribime directo</span>
-            </div>
+            <nav className={s.socials} aria-label="Redes sociales">
+              {SOCIALS.map(({ label, href }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                  {label}
+                </a>
+              ))}
+            </nav>
+          </aside>
 
-            <a
-              href="https://api.whatsapp.com/send?phone=541158742482"
-              className={s.whatsappCta}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaWhatsapp />
-              Escribime por WhatsApp
-            </a>
-          </div>
-
-          <div className={s.socialIcons}>
-            <a
-              href="https://www.linkedin.com/in/frangabriel13/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <i className="bx bxl-linkedin"></i>
-            </a>
-            <a
-              href="https://www.instagram.com/frangabriel.13/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
-              <i className="bx bxl-instagram"></i>
-            </a>
-            <a
-              href="https://twitter.com/frangabriel13_/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Twitter"
-            >
-              <i className="bx bxl-twitter"></i>
-            </a>
-            <a
-              href="https://github.com/frangabriel13/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-            >
-              <i className="bx bxl-github"></i>
-            </a>
-          </div>
-        </div>
-
-        {/* ── Right panel: form or success ── */}
-        <div className={s.formPanel}>
-          {!sent && <h3 className={s.formTitle}>Dejame un mensaje</h3>}
-          {sent ? (
-            <div className={s.successState}>
-              <div className={s.successIcon}>
-                <i className="bx bx-check"></i>
+          {/* ── Formulario o confirmación ── */}
+          <div className={s.formPanel}>
+            {sent ? (
+              <div className={s.success} role="status">
+                <span className={s.successIcon} aria-hidden="true">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12l5 5 9-10" />
+                  </svg>
+                </span>
+                <h3 className={s.successTitle}>¡Mensaje enviado!</h3>
+                <p className={s.successText}>Gracias por escribirme. Te respondo a la brevedad.</p>
+                <button type="button" className={s.resetButton} onClick={() => setSent(false)}>
+                  Enviar otro mensaje
+                </button>
               </div>
-              <h3>¡Mensaje enviado!</h3>
-              <p>Gracias por escribirme. Te responderé a la brevedad.</p>
-              <button className={s.resetButton} onClick={() => setSent(false)}>
-                Enviar otro mensaje
-              </button>
-            </div>
-          ) : (
-            <form className={s.form} ref={form} onSubmit={sendEmail}>
-              <div className={s.inputGroup}>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  name="user_name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  name="user_email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
+            ) : (
+              <form className={s.form} ref={form} onSubmit={sendEmail}>
+                <h3 className={s.formTitle}>Dejame un mensaje</h3>
 
-              <textarea
-                placeholder="Message"
-                name="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              ></textarea>
+                <label className={s.field}>
+                  Nombre
+                  <input
+                    type="text"
+                    name="user_name"
+                    placeholder="Tu nombre"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </label>
 
-              {error && (
-                <p className={s.errorMessage}>
-                  <i className="bx bx-error-circle"></i>
-                  Ocurrió un error al enviar el correo electrónico.
-                </p>
-              )}
+                <label className={s.field}>
+                  Email
+                  <input
+                    type="email"
+                    name="user_email"
+                    placeholder="tu@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </label>
 
-              <button className={s.sendButton} disabled={sending}>
-                {sending ? (
-                  <>
-                    <span className={s.spinner}></span>
-                    Enviando...
-                  </>
-                ) : (
-                  <>
-                    Enviar mensaje <i className="bx bx-send"></i>
-                  </>
+                <label className={s.field}>
+                  Mensaje
+                  <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Contame sobre tu proyecto"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                  />
+                </label>
+
+                {error && (
+                  <p className={s.error} role="alert">
+                    No se pudo enviar el mensaje. Probá de nuevo o escribime por WhatsApp.
+                  </p>
                 )}
-              </button>
-            </form>
-          )}
+
+                <button type="submit" className={s.sendButton} disabled={sending}>
+                  {sending ? (
+                    <>
+                      <span className={s.spinner} aria-hidden="true" />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      Enviar mensaje
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
