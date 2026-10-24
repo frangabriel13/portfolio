@@ -61,7 +61,7 @@ const Resumen = () => {
         <header className={s.header}>
           <h2 className={s.title}>Resumen</h2>
           <p className={s.intro}>
-            Comencé programando de forma autodidacta, desarrollando proyectos para clientes nacionales e internacionales. En paralelo, me encargué de todo el desarrollo de un sistema B2B web y mobile para Android e iOS, que hoy mantengo. Actualmente curso Ingeniería Informática en la UNLaM.
+            Empecé programando de forma autodidacta, desarrollando proyectos para clientes nacionales e internacionales. En paralelo, me encargué de todo el desarrollo de un sistema B2B web y mobile para Android e iOS, que hoy mantengo. Actualmente curso Ingeniería Informática en la UNLaM.
           </p>
         </header>
 
